@@ -1,0 +1,2495 @@
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+NULL
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+NULL
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+)
+array (
+)
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Redirecting to Login, Failed test line: 150 (/gestioneTest/frontend/views/studenti.php NOT AVAILABLE FOR DOCENTE) with /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Redirecting to Login, Failed test line: 150 (/gestioneTest/frontend/views/studenti.php NOT AVAILABLE FOR DOCENTE) with /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php?filter=5A
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php?filter=5AI
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php?filter=5
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php?filter=E
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php?filter=
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php?filter=M
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php?filter=MA
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php?filter=fava
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php?filter=r
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php?filter=r
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php?filter=r
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php?filter=r
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php?filter=rossi
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php?filter=afawf
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password123',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+)
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php?filter=aii
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php?filter=
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php?filter=BN
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php?filter=
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php?filter=marco
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+)
+array (
+)
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /gestioneTest/frontend/views/test.php
