@@ -168,11 +168,17 @@ $result = $stmt->get_result();
                     sessione AS s
                   ON 
                     t.sessione_id = s.id
+                  JOIN
+                    utente AS stu
+                  ON
+                    t.cf_studente = stu.codice_fiscale
                   WHERE 
-                    s.test_id = ?";
+                    s.test_id = ?
+                  AND
+                    stu.codice_fiscale=?";
 
             $stmt_attempt_details = $conn->prepare($SQL_query_attempt_details);
-            $stmt_attempt_details->bind_param("i", $_POST['id']);
+            $stmt_attempt_details->bind_param("is", $_POST['id'], $_SESSION['user']['codice_fiscale']);
             $stmt_attempt_details->execute();
             $result_attempt_details = $stmt_attempt_details->get_result();
 

@@ -100,6 +100,7 @@ $result_domande = $stmt_domande->get_result();
             <?php
             if ($result_domande->num_rows > 0) {
                 while ($row_domanda = $result_domande->fetch_assoc()) {
+                    // print_r($row_domanda);
                     echo "<div class='question-container'>";
                     
                     // Testo
@@ -124,10 +125,11 @@ $result_domande = $stmt_domande->get_result();
                         
                         echo "<div class='options-list'>";
                         while ($row_opzione = $result_opzioni->fetch_assoc()) {
+                            // print_r($row_opzione);
                             echo "<div class='form-check'>
                                     <input class='form-check-input' type='radio' name='question_{$row_domanda['id']}' id='option_{$row_opzione['id']}'>
                                     <label class='form-check-label' for='option_{$row_opzione['id']}'>
-                                        " . htmlspecialchars($row_opzione['testo_opzione']) . "
+                                        " . $row_opzione['testo_opzione'] . "
                                     </label>
                                   </div>";
                         }
