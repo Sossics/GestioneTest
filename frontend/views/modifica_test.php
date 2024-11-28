@@ -1,10 +1,20 @@
-
 <?php
 session_start();
 require("./../../backend/Include/db_connect.php");
 
 // ID
 $test_id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+
+if(isset($_GET['titolo'])){
+
+    $new_title = htmlspecialchars($_GET['titolo']);
+
+    $SQL_query_test = "UPDATE test SET titolo = ? WHERE test.id = ?";
+    $stmt_test = $conn->prepare($SQL_query_test);
+    $stmt_test -> bind_param('si', $new_title, $test_id);
+    $stmt_test->execute();
+    
+}
 
 // Test fetch
 $SQL_query_test = "SELECT t.titolo, d.nome AS nome_docente, d.cognome AS cognome_docente
@@ -34,13 +44,10 @@ $result_domande = $stmt_domande->get_result();
 
 ?>
 
-<!DOCTYPE html>
-<html lang="it">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizza Test - <?php echo htmlspecialchars($row_test['titolo']); ?></title>
+    <title>Modifica Test - <?php echo htmlspecialchars($row_test['titolo']); ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/feather-icons@4.30.0/dist/feather.min.css" rel="stylesheet">
     <style>
@@ -82,19 +89,31 @@ $result_domande = $stmt_domande->get_result();
 
 <body style="background-color: rgb(240, 235, 248);">
     <?php include("components/navbar.php"); ?>
+
     <div class="container mt-5">
         <div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                     <li class="breadcrumb-item"><a href="test.php">Test</a></li>
-                    <li class="breadcrumb-item"><a href="test.php">Visualizza</a></li>
+                    <li class="breadcrumb-item"><a href="test.php">Modifica</a></li>
                     <li class="breadcrumb-item active"><?php echo htmlspecialchars($row_test['titolo']); ?></li>
                 </ol>
             </nav>
         </div>
-        <h2 class="text-center"><?php echo htmlspecialchars($row_test['titolo']); ?></h2>
-        <p class="text-center">Creato da: <?php echo ucfirst(strtolower($row_test['nome_docente'])) . " " . ucfirst(strtolower($row_test['cognome_docente'])); ?></p>
+
+        <div class="text-center">
+            <form action="modifica_test.php" method="get" class="text-center d-inline-block">
+                <input type="hidden" name="id" value=" <?php echo $test_id; ?>">
+                <div class="input-group mb-1 w-100">
+                    <input type="text" class="form-control fs-4" id="titolo" name="titolo" value="<?php echo htmlspecialchars($row_test['titolo']); ?>">
+                    <input class="btn btn-primary" type="submit" value="modifica">
+                </div>
+            </form>
+            <p class="text-center">Creato da: <?php echo ucfirst(strtolower($row_test['nome_docente'])) . " " . ucfirst(strtolower($row_test['cognome_docente'])); ?></p>
+        </div>
+        
+
 
         <form id="test-form">
             <?php
@@ -110,7 +129,7 @@ $result_domande = $stmt_domande->get_result();
                     if ($row_domanda['tipo'] == 'APERTA') {
                         echo "<div class='question-text'>
                                 <label for='answer_{$row_domanda['id']}'>Risposta:</label>
-                                <textarea id='answer_{$row_domanda['id']}' class='form-control' rows='4' placeholder='Scrivi la tua risposta'></textarea>
+                                <textarea id='answer_{$row_domanda['id']}' class='form-control' rows='4' placeholder='Scrivi la tua risposta' disabled></textarea>
                               </div>";
                     }
 
@@ -127,7 +146,7 @@ $result_domande = $stmt_domande->get_result();
                         while ($row_opzione = $result_opzioni->fetch_assoc()) {
                             // print_r($row_opzione);
                             echo "<div class='form-check'>
-                                    <input class='form-check-input' type='radio' name='question_{$row_domanda['id']}' id='option_{$row_opzione['id']}'>
+                                    <input class='form-check-input' type='radio' name='question_{$row_domanda['id']}' id='option_{$row_opzione['id']}' disabled>
                                     <label class='form-check-label' for='option_{$row_opzione['id']}'>
                                         " . $row_opzione['testo_opzione'] . "
                                     </label>
