@@ -63,6 +63,24 @@ $result = $stmt->get_result();
         tr {
             text-align: center;
         }
+
+        .custom-card {
+            width: 18rem;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 150px;
+        }
+
+        .mb-3 {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
@@ -70,27 +88,27 @@ $result = $stmt->get_result();
     <?php include("components/navbar.php") ?>
     <div class="container mt-5">
         <div>
-        <?php if (isset($_POST['id'])): ?>
-            <?php
+            <?php if (isset($_POST['id'])): ?>
+                <?php
 
                 $row = $result->fetch_assoc();
 
-            ?>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item"><a href="test.php">Test</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><?= $row['test_titolo'] ?></li>
-                </ol>
-            </nav>
-        <?php else: ?>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item active">Test</a></li>
-                </ol>
-            </nav>
-        <?php endif; ?>
+                ?>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="test.php">Test</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><?= $row['test_titolo'] ?></li>
+                    </ol>
+                </nav>
+            <?php else: ?>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                        <li class="breadcrumb-item active">Test</a></li>
+                    </ol>
+                </nav>
+            <?php endif; ?>
         </div>
         <div class="d-flex justify-content-between align-items-center mb-3">
             <?php if (isset($_POST['id'])): ?>
@@ -194,7 +212,7 @@ $result = $stmt->get_result();
                     while ($row = $result->fetch_assoc()) {
                         echo "<form method='POST' action='test.php' class='mb-3' style='display: inline-block;'>";
                         echo "<input type='hidden' name='id' value='" . htmlspecialchars($row['test_id']) . "'>";
-                        echo "<div class='card' style='width: 18rem; cursor: pointer;' onclick='this.closest(\"form\").submit();'>";
+                        echo "<div class='card custom-card' style='cursor: pointer;' onclick='this.closest(\"form\").submit();'>";
                         echo "<img src='src/images/test.jpg' class='card-img-top' alt='Immagine test'>";
                         echo "<div class='card-body'>";
                         echo "<h5 class='card-title font-weight-bold'>" . htmlspecialchars($row['test_titolo']) . "</h5>";
