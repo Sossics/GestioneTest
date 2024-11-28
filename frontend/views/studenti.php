@@ -44,6 +44,14 @@ $result = $stmt->get_result();
 <body style="background-color: rgb(240, 235, 248);">
     <?php include("components/navbar.php") ?>
     <div class="container mt-5">
+        <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                    <li class="breadcrumb-item active">Studenti</li>
+                </ol>
+            </nav>
+        </div>
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2>Lista degli Studenti</h2>
             <form method="GET" class="d-flex">
