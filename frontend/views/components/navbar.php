@@ -18,7 +18,7 @@
     
             .nav-link:hover {
                 background-color: rgba(255, 255, 255, 0.2);
-                color: #fff !important;
+                color: #000 !important;
             }
     
             .logout-btn {
