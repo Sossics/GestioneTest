@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2024 at 06:40 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Nov 28, 2024 at 05:40 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -147,8 +147,8 @@ CREATE TABLE `sessione` (
   `test_id` int(11) NOT NULL,
   `classe_id` int(11) NOT NULL,
   `cf_docente` varchar(16) NOT NULL,
-  `data_inizio` date NOT NULL,
-  `data_fine` date NOT NULL
+  `data_inizio` datetime NOT NULL,
+  `data_fine` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
@@ -156,7 +156,7 @@ CREATE TABLE `sessione` (
 --
 
 INSERT INTO `sessione` (`id`, `test_id`, `classe_id`, `cf_docente`, `data_inizio`, `data_fine`) VALUES
-(1, 1, 1, 'RSSMRA85M01H501Z', '2024-11-25', '2024-11-26');
+(2, 1, 1, 'RSSMRA85M01H501Z', '2024-11-28 13:00:00', '2024-12-04 13:55:00');
 
 -- --------------------------------------------------------
 
@@ -168,8 +168,16 @@ CREATE TABLE `tentativo` (
   `id` int(11) NOT NULL,
   `cf_studente` varchar(16) NOT NULL,
   `sessione_id` int(11) NOT NULL,
-  `data_tentativo` date NOT NULL DEFAULT current_timestamp()
+  `data_tentativo` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `tentativo`
+--
+
+INSERT INTO `tentativo` (`id`, `cf_studente`, `sessione_id`, `data_tentativo`) VALUES
+(2, 'VRNGPP96L20F205X', 2, '2024-11-28 04:50:43'),
+(3, 'VRNGPP96L20F205X', 2, '2024-11-28 04:50:54');
 
 -- --------------------------------------------------------
 
@@ -311,13 +319,13 @@ ALTER TABLE `opzioni_domanda`
 -- AUTO_INCREMENT for table `sessione`
 --
 ALTER TABLE `sessione`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tentativo`
 --
 ALTER TABLE `tentativo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `test`
