@@ -4,6 +4,21 @@ require("./../../backend/Include/db_connect.php");
 
 $codice_fiscale = $_SESSION['user']['codice_fiscale'];
 
+if(isset($_POST["nome"]) || isset($_POST["cognome"])){
+
+    $new_nome = htmlspecialchars($_POST['nome']);
+    $new_cognome = htmlspecialchars($_POST['cognome']);
+
+    $SQL_query_test = "UPDATE utente SET nome = ? , cognome = ? WHERE codice_fiscale = ?";
+    $stmt_test = $conn->prepare($SQL_query_test);
+    $stmt_test -> bind_param('sss', $new_nome, $new_cognome, $codice_fiscale);
+    $stmt_test->execute();
+
+    $_SESSION['user']['nome'] = $new_nome;
+    $_SESSION['user']['cognome'] = $new_cognome;
+
+}
+
 $SQL_query = "SELECT nome, cognome, login, ruolo FROM utente WHERE codice_fiscale = ?";
 $stmt = $conn->prepare($SQL_query);
 $stmt->bind_param("s", $codice_fiscale);
@@ -40,22 +55,26 @@ $user = $result->fetch_assoc();
                 <div class="card">
                     <div class="card-body">
                         <form method="POST" action="profilo.php">
+
                             <div class="mb-3">
                                 <label for="nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="nome" value="<?php echo htmlspecialchars($user['nome']); ?>" readonly>
+                                <input type="text" class="form-control" id="nome" name="nome" value="<?php echo htmlspecialchars($user['nome']); ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="cognome" class="form-label">Cognome</label>
-                                <input type="text" class="form-control" id="cognome" name="cognome" value="<?php echo htmlspecialchars($user['cognome']); ?>" readonly>
+                                <input type="text" class="form-control" id="cognome" name="cognome" value="<?php echo htmlspecialchars($user['cognome']); ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="login" class="form-label">Login</label>
-                                <input type="text" class="form-control" id="login" name="login" value="<?php echo htmlspecialchars($user['login']); ?>" readonly>
+                                <input type="text" class="form-control" id="login" name="login" value="<?php echo htmlspecialchars($user['login']); ?>" readonly disabled>
                             </div>
                             <div class="mb-3">
                                 <label for="ruolo" class="form-label">Ruolo</label>
-                                <input type="text" class="form-control" id="ruolo" name="ruolo" value="<?php echo htmlspecialchars($user['ruolo']); ?>" readonly>
+                                <input type="text" class="form-control" id="ruolo" name="ruolo" value="<?php echo htmlspecialchars($user['ruolo']); ?>" readonly disabled>
                             </div>
+
+                            <input type="submit" class="btn btn-primary" value="Modifica">
+
                         </form>
                     </div>
                 </div>
