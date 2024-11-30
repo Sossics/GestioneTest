@@ -5,15 +5,15 @@ require("./../../backend/Include/db_connect.php");
 // ID
 $test_id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
-if(isset($_GET['titolo'])){
+if (isset($_GET['titolo'])) {
 
     $new_title = htmlspecialchars($_GET['titolo']);
 
     $SQL_query_test = "UPDATE test SET titolo = ? WHERE test.id = ?";
     $stmt_test = $conn->prepare($SQL_query_test);
-    $stmt_test -> bind_param('si', $new_title, $test_id);
+    $stmt_test->bind_param('si', $new_title, $test_id);
     $stmt_test->execute();
-    
+
 }
 
 // Test fetch
@@ -103,16 +103,18 @@ $result_domande = $stmt_domande->get_result();
         </div>
 
         <div class="text-center">
-            <form action="modifica_test.php" method="get" class="text-center d-inline-block">
-                <input type="hidden" name="id" value=" <?php echo $test_id; ?>">
-                <div class="input-group mb-1 w-100">
-                    <input type="text" class="form-control fs-4" id="titolo" name="titolo" value="<?php echo htmlspecialchars($row_test['titolo']); ?>">
-                    <input class="btn btn-primary" type="submit" value="modifica">
-                </div>
-            </form>
-            <p class="text-center">Creato da: <?php echo ucfirst(strtolower($row_test['nome_docente'])) . " " . ucfirst(strtolower($row_test['cognome_docente'])); ?></p>
+            <div class="input-group mb-1 w-100">
+                <input type="text" class="form-control fs-4 border-0 border-bottom text-center" id="titolo"
+                    name="titolo" value="<?php echo htmlspecialchars($row_test['titolo']); ?>"
+                    style="background: transparent; outline: none;"
+                    onblur="aggiornaTitolo('<?php echo $test_id; ?>', this.value)">
+            </div>
+            <p class="text-center">
+                Creato da:
+                <?php echo ucfirst(strtolower($row_test['nome_docente'])) . " " . ucfirst(strtolower($row_test['cognome_docente'])); ?>
+            </p>
         </div>
-        
+
 
 
         <form id="test-form">
@@ -121,9 +123,24 @@ $result_domande = $stmt_domande->get_result();
                 while ($row_domanda = $result_domande->fetch_assoc()) {
                     // print_r($row_domanda);
                     echo "<div class='question-container'>";
-                    
+
                     // Testo
-                    echo "<p class='question-title'>" . htmlspecialchars($row_domanda['testo']) . "</p>";
+                    // echo "<p class='question-title'>" . htmlspecialchars($row_domanda['testo']) . "</p>";
+                    echo '  <div class="d-flex justify-content-between align-items-center">
+                                <input type="text" class="form-control fs-4 border-0 border-bottom text-left" id="titolo"
+                                    name="titolo" 
+                                    value="'.htmlspecialchars($row_domanda['testo']).'"
+                                    style="background: transparent; outline: none;"
+                                    onblur="aggiornaDomanda(\''.$row_domanda['id'].'\', this.value)"
+                                >
+                                <div class="ms-3">
+                                    <label>Tipo di domanda:</label>
+                                    <select id="question_type" name="question_type" onchange="aggiornaTipoDomanda('.$row_domanda['id'].', this.value)">
+                                        <option value="APERTA" '. (($row_domanda['tipo'] == "APERTA") ? "selected": "") .' >Domanda Aperta</option>
+                                        <option value="MULTIPLA" '. (($row_domanda['tipo'] == "MULTIPLA") ? "selected": "") .' >Scelta Multipla</option>
+                                    </select>
+                                </div>
+                            </div>';
 
                     // tipo "APERTA"
                     if ($row_domanda['tipo'] == 'APERTA') {
@@ -141,15 +158,18 @@ $result_domande = $stmt_domande->get_result();
                         $stmt_opzioni->bind_param("i", $row_domanda['id']);
                         $stmt_opzioni->execute();
                         $result_opzioni = $stmt_opzioni->get_result();
-                        
+
                         echo "<div class='options-list'>";
                         while ($row_opzione = $result_opzioni->fetch_assoc()) {
                             // print_r($row_opzione);
                             echo "<div class='form-check'>
                                     <input class='form-check-input' type='radio' name='question_{$row_domanda['id']}' id='option_{$row_opzione['id']}' disabled>
-                                    <label class='form-check-label' for='option_{$row_opzione['id']}'>
-                                        " . $row_opzione['testo_opzione'] . "
-                                    </label>
+                                    <input type='text' class='border-0 border-bottom text-left' id='titolo'
+                            name='question_".$row_domanda['id']."'
+                            id='option_".$row_opzione['id']."' 
+                            value='" . $row_opzione['testo_opzione'] . "'
+                            style='background: transparent; outline: none;'
+                            onblur='aggiornaOpzione('".$row_opzione['id']."', this.value)'>
                                   </div>";
                         }
                         echo "</div>";
@@ -164,10 +184,91 @@ $result_domande = $stmt_domande->get_result();
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <?php include("components/footer.php")?>
+    <?php include("components/footer.php") ?>
     <script>
         feather.replace();
-    </script>
+        
+                function aggiornaTitolo(testID, titolo) {
+                    fetch('../../backend/API/change_test_title.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ id: testID, titolo: titolo })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (!data.success) {
+                                alert('Errore durante l\'aggiornamento del titolo.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Errore nella richiesta:', error);
+                            alert('Errore durante la connessione al server.');
+                        });
+                }
+        
+                function aggiornaTipoDomanda(questionID, tipo) {
+                    fetch('../../backend/API/change_test_question_type.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ id: questionID, tipo: tipo })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (!data.success) {
+                                alert('Errore durante l\'aggiornamento del titolo.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Errore nella richiesta:', error);
+                            alert('Errore durante la connessione al server.');
+                        });
+                }
+        
+                function aggiornaDomanda(questionID, domanda) {
+                    fetch('../../backend/API/change_test_question.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ id: questionID, domanda: domanda })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (!data.success) {
+                                alert('Errore durante l\'aggiornamento del titolo.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Errore nella richiesta:', error);
+                            alert('Errore durante la connessione al server.');
+                        });
+                }
+        
+                function aggiornaOpzione(optionID, opzione) {
+                    fetch('../../backend/API/change_test_option.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ id: optionID, opzione: opzione })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (!data.success) {
+                                alert('Errore durante l\'aggiornamento del titolo.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Errore nella richiesta:', error);
+                            alert('Errore durante la connessione al server.');
+                        });
+                }
+        </script>
+
 </body>
 
 </html>
