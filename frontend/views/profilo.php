@@ -54,15 +54,15 @@ $user = $result->fetch_assoc();
             <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-body">
-                        <form method="POST" action="profilo.php">
+                        <!-- <form method="POST" action="profilo.php"> -->
 
                             <div class="mb-3">
                                 <label for="nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="nome" value="<?php echo htmlspecialchars($user['nome']); ?>">
+                                <input type="text" class="form-control" id="nome" name="nome" value="<?php echo htmlspecialchars($user['nome']); ?>" disabled>
                             </div>
                             <div class="mb-3">
                                 <label for="cognome" class="form-label">Cognome</label>
-                                <input type="text" class="form-control" id="cognome" name="cognome" value="<?php echo htmlspecialchars($user['cognome']); ?>">
+                                <input type="text" class="form-control" id="cognome" name="cognome" value="<?php echo htmlspecialchars($user['cognome']); ?>" disabled>
                             </div>
                             <div class="mb-3">
                                 <label for="login" class="form-label">Login</label>
@@ -73,16 +73,64 @@ $user = $result->fetch_assoc();
                                 <input type="text" class="form-control" id="ruolo" name="ruolo" value="<?php echo htmlspecialchars($user['ruolo']); ?>" readonly disabled>
                             </div>
 
-                            <input type="submit" class="btn btn-primary" value="Modifica">
+                            <button class="btn btn-primary" id="edit_save_button" data-action="edit">Modifica</button>
 
-                        </form>
+                        <!-- </form> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+    document.addEventListener("DOMContentLoaded", (event) => {
+
+            function updateUser(name, surname){
+                fetch('../../backend/API/change_profile_info.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({new_name: name, new_surname: surname})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(!data.success){
+                        alert(data.error)
+                    }else{
+                        alert('Dati aggiornati con successo.');
+                    }
+                })
+            }
+
+            var edit_save_button = document.getElementById('edit_save_button');
+            var name_input = document.getElementById("nome");
+            var surname_input = document.getElementById("cognome");
+
+            edit_save_button.addEventListener('click', (event) => {
+                console.log(edit_save_button.attributes['data-action']);
+                if(edit_save_button.attributes['data-action'].value == "edit"){
+                    name_input.disabled = false;
+                    surname_input.disabled = false;
+                    edit_save_button.innerHTML = "Salva"
+                    edit_save_button.attributes['data-action'].value = "save";
+                    edit_save_button.classList.remove('btn-primary');
+                    edit_save_button.classList.add('btn-success');
+                }else if(edit_save_button.attributes['data-action'].value == "save"){
+                    updateUser(name_input.value, surname_input.value);
+                    name_input.disabled = true;
+                    surname_input.disabled = true;
+                    edit_save_button.innerHTML = "Modifica"
+                    edit_save_button.attributes['data-action'].value = "edit";
+                    edit_save_button.classList.remove('btn-success');
+                    edit_save_button.classList.add('btn-primary');
+                }
+            })
+
+        });
+
+    </script>
 </body>
 
 </html>
