@@ -284,7 +284,7 @@ switch($_SESSION['user']['ruolo']){
                         echo "<td>" . htmlspecialchars(ucfirst(strtolower($row['nome_docente'])) . " " . ucfirst(strtolower($row['cognome_docente']))) . "</td>";
                         echo "<td>" . htmlspecialchars($row['numero_domande']) . "</td>";
                         echo "<td class='action-btn'>";
-                        echo "<a href='modifica_test.php?id=" . htmlspecialchars($row['test_id']) . "' class='btn btn-warning btn-sm'>
+                        echo "<a href='modifica_test.php?id=" . htmlspecialchars($row['test_id']) . "' class='btn btn-warning btn-sm me-1'>
                                         <i data-feather='edit'></i>
                                      </a>";
                         echo "<a href='visualizza_test.php?id=" . htmlspecialchars($row['test_id']) . "' class='btn btn-info btn-sm'>
