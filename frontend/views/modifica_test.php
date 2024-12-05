@@ -122,7 +122,7 @@ $result_domande = $stmt_domande->get_result();
             if ($result_domande->num_rows > 0) {
                 while ($row_domanda = $result_domande->fetch_assoc()) {
                     // print_r($row_domanda);
-                    echo "<div class='question-container'>";
+                    echo "<div class='question-container' id='".$row_domanda['id']."_question-container'>";
 
                     // Testo
                     // echo "<p class='question-title'>" . htmlspecialchars($row_domanda['testo']) . "</p>";
@@ -172,6 +172,14 @@ $result_domande = $stmt_domande->get_result();
                             onblur='aggiornaOpzione('".$row_opzione['id']."', this.value)'>
                                   </div>";
                         }
+                        echo '  <div class="form-check">
+                                    <div class="text-left mt-3">
+                                        <button class="btn btn-success rounded-pill d-flex align-items-center justify-content-center" 
+                                                style="width: 10vh; height: 4vh;" onclick="aggiungiOpzione()">
+                                            <span style="color: white; font-size: 24px;">+</span>
+                                        </button>
+                                    </div>
+                                </div>';
                         echo "</div>";
                     }
                     echo "</div>";
@@ -220,6 +228,27 @@ $result_domande = $stmt_domande->get_result();
                         .then(data => {
                             if (!data.success) {
                                 alert('Errore durante l\'aggiornamento del titolo.');
+                            }else{
+                                
+                                //Fetch new Question HTML code from renderer
+                                fetch('../../backend/API/render_question.php', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({id: questionID})
+                                })
+                                .then(render_response => render_response.json())
+                                .then(data => {
+                                    if(!data.success){
+                                        alert('Errore durante il cambiamento del tipo di domanda');
+                                        location.reload();
+                                    }else{
+                                        var container_div = document.getElementById(questionID+"_question-container");
+                                        container_div.innerHTML = "";                                        
+                                        }
+                                    });
+
                             }
                         })
                         .catch(error => {
