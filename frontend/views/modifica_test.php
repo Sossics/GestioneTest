@@ -104,7 +104,7 @@ $result_domande = $stmt_domande->get_result();
 
         <div class="text-center">
             <div class="input-group mb-1 w-100">
-                <input type="text" class="form-control fs-4 border-0 border-bottom text-center" id="titolo"
+                <input type="text" class="form-control fs-1 border-0 border-bottom text-center" id="titolo"
                     name="titolo" value="<?php echo htmlspecialchars($row_test['titolo']); ?>"
                     style="background: transparent; outline: none;"
                     onblur="aggiornaTitolo('<?php echo $test_id; ?>', this.value)">

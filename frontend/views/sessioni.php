@@ -76,10 +76,11 @@ $result = $stmt->get_result();
         </div>
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2>Lista delle Sessioni</h2>
-            <form method="GET" class="d-flex">
+            <form method="GET" class="d-flex justify-content-between">
                 <input type="text" name="filter" class="form-control me-2" placeholder="Cerca sessione..."
                     value="<?php echo htmlspecialchars($filter); ?>">
                 <button type="submit" class="btn btn-primary">Cerca</button>
+                <button type="submit" class="btn btn-success">Nuova</button>
             </form>
         </div>
         <table class="table table-bordered table-striped">

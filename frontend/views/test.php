@@ -3,50 +3,88 @@
 session_start();
 require("./../../backend/Include/db_connect.php");
 $filter = isset($_GET['filter']) ? trim($_GET['filter']) : '';
+switch($_SESSION['user']['ruolo']){
+    case "STUDENTE":
+            $SQL_query = "SELECT
+                                t.id AS test_id,
+                                t.titolo AS test_titolo,
+                                d.nome AS nome_docente,
+                                d.cognome AS cognome_docente,
+                                COUNT(dm.id) AS numero_domande
+                            FROM
+                                utente AS stu
+                            JOIN
+                                classe_studente as c_s
+                            ON
+                                c_s.cf_studente=stu.codice_fiscale
+                            JOIN
+                                classe as c
+                            ON
+                                c_s.id_classe=c.id
+                            JOIN
+                                sessione as s
+                            ON
+                                s.classe_id=c.id
+                            JOIN
+                                test as t
+                            ON
+                                s.test_id=t.id
+                            JOIN
+                                utente as d
+                            ON
+                                d.codice_fiscale=t.cf_docente
+                            LEFT JOIN
+                                domanda as dm
+                            ON
+                                dm.test_id=t.id";
+            break;
+        case "DOCENTE":
+            $SQL_query = "SELECT
+                                t.id AS test_id,
+                                t.titolo AS test_titolo,
+                                d.nome AS nome_docente,
+                                d.cognome AS cognome_docente,
+                                COUNT(dm.id) AS numero_domande
+                            FROM 
+                                test AS t
+                            JOIN 
+                                utente AS d
+                            ON 
+                                d.codice_fiscale=t.cf_docente
+                            LEFT JOIN 
+                                domanda AS dm 
+                            ON 
+                                dm.test_id = t.id";
+            
+            break;
+        }
 
-$SQL_query = "SELECT
-                    t.id AS test_id,
-                    t.titolo AS test_titolo,
-                    d.nome AS nome_docente,
-                    d.cognome AS cognome_docente,
-                    COUNT(dm.id) AS numero_domande
-                FROM 
-                    test AS t
-                JOIN 
-                    utente AS d
-                ON 
-                    d.codice_fiscale=t.cf_docente
-                LEFT JOIN 
-                    domanda AS dm 
-                ON 
-                    dm.test_id = t.id";
-
-if (isset($_POST['id'])) {
-    $SQL_query .= " WHERE t.id=?";
-}
-
-if ($filter !== '') {
-    $SQL_query .= " " . (isset($_POST['id']) ? "AND" : "WHERE") . " t.titolo LIKE ? OR d.nome LIKE ? OR d.cognome LIKE ?";
-}
-
-$SQL_query .= " GROUP BY 
-                    t.id, t.titolo, d.nome, d.cognome";
-
-// echo "Processing: $SQL_query";
-$stmt = $conn->prepare($SQL_query);
-if ($filter !== '') {
-    $like_filter = '%' . $filter . '%';
-    if (isset($_POST['id'])) {
-        $stmt->bind_param("isss", $_POST['id'], $like_filter, $like_filter, $like_filter);
-    } else {
-        $stmt->bind_param("sss", $like_filter, $like_filter, $like_filter);
-    }
-} else if (isset($_POST['id'])) {
-    $stmt->bind_param("i", $_POST['id']);
-}
-// echo "Executing: $SQL_query";
-$stmt->execute();
-$result = $stmt->get_result();
+            if (isset($_POST['id'])) {
+                $SQL_query .= " WHERE t.id=?";
+            }
+            
+            if ($filter !== '') {
+                $SQL_query .= " " . (isset($_POST['id']) ? "AND" : "WHERE") . " t.titolo LIKE ? OR d.nome LIKE ? OR d.cognome LIKE ?";
+            }
+            
+            $SQL_query .= " GROUP BY 
+                                t.id, t.titolo, d.nome, d.cognome";
+            
+            // echo "Processing: $SQL_query";
+            $stmt = $conn->prepare($SQL_query);
+            if ($filter !== '') {
+                $like_filter = '%' . $filter . '%';
+                if (isset($_POST['id'])) {
+                    $stmt->bind_param("isss", $_POST['id'], $like_filter, $like_filter, $like_filter);
+                } else {
+                    $stmt->bind_param("sss", $like_filter, $like_filter, $like_filter);
+                }
+            } else if (isset($_POST['id'])) {
+                $stmt->bind_param("i", $_POST['id']);
+            }
+            // echo "Executing: $SQL_query";
+            $stmt->execute();
+            $result = $stmt->get_result();
 
 ?>
 
@@ -213,7 +251,7 @@ $result = $stmt->get_result();
             echo "</table>";
         } else {
 
-            if ($result && $result->num_rows > 0) {
+            if (isset($result) && $result->num_rows > 0) {
                 if ($_SESSION['user']['ruolo'] == "STUDENTE") {
                     while ($row = $result->fetch_assoc()) {
                         echo "<form method='POST' action='test.php' class='mb-3' style='display: inline-block;'>";
