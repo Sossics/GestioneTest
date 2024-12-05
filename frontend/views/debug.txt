@@ -5027,3 +5027,501 @@ array (
   'logged_in' => true,
 )
 Access Authorized for DOCENTE with  /GestioneTest/frontend/views/visualizza_classe.php?id=1
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/profilo.php
+array (
+)
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/visualizza_classe.php?id=1
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/visualizza_classe.php?id=1
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/classi.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/studenti.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/sessioni.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'RSSMRA85M01H501Z',
+    'nome' => 'Mario',
+    'cognome' => 'Rossi',
+    'login' => 'mrossi',
+    'password' => 'password',
+    'ruolo' => 'DOCENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for DOCENTE with  /GestioneTest/frontend/views/studenti.php
+array (
+)
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Matteo',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Matteo',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Matteo',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Matteo',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Matteo',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Matteo',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Matteo',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Matteo',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Matteo',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Matteo',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Matteo',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Matteo',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => NULL,
+    'cognome' => NULL,
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => NULL,
+    'cognome' => NULL,
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => NULL,
+    'cognome' => NULL,
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/profilo.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Marco',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/index.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Marco',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/test.php
+array (
+  'user' => 
+  array (
+    'codice_fiscale' => 'BNCLLN90A01F205X',
+    'nome' => 'Marco',
+    'cognome' => 'Favaro',
+    'login' => 'effeemme',
+    'password' => 'password',
+    'ruolo' => 'STUDENTE',
+  ),
+  'logged_in' => true,
+)
+Access Authorized for STUDENTE with  /GestioneTest/frontend/views/profilo.php

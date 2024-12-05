@@ -13,3 +13,5 @@ Stack trace:
 #0 C:\xampp\htdocs\GestioneTest\backend\API\change_profile_info.php(59): mysqli->prepare('UPDATE utente S...')
 #1 {main}
   thrown in C:\xampp\htdocs\GestioneTest\backend\API\change_profile_info.php on line 59
+[05-Dec-2024 10:45:33 Europe/Berlin] PHP Warning:  Undefined variable $new_nome in C:\xampp\htdocs\GestioneTest\backend\API\change_profile_info.php on line 63
+[05-Dec-2024 10:45:33 Europe/Berlin] PHP Warning:  Undefined variable $new_cognome in C:\xampp\htdocs\GestioneTest\backend\API\change_profile_info.php on line 64

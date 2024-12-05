@@ -3,3 +3,13 @@ Changing title of test with id=1 to: Test di Prova Di Marco Rossi (feat. Russo)
     Checking if row exists. If yes, update.
     Row detected. Updating...
 Updated.
+----------------NEW OPERATION----------------
+Changing title of test with id=1 to: Prova
+    Checking if row exists. If yes, update.
+    Row detected. Updating...
+Updated.
+----------------NEW OPERATION----------------
+Changing title of test with id=1 to: Prova
+    Checking if row exists. If yes, update.
+    Row detected. Updating...
+Updated.

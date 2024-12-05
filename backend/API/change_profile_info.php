@@ -60,6 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param('sss', $new_name, $new_surname, $user_cf);
 
         if ($stmt->execute()) {
+            $_SESSION['user']['nome'] = $new_name;
+            $_SESSION['user']['cognome'] = $new_surname;
             fwrite($f, "Updated.\n");
             echo json_encode(['success' => true]);
         } else {
