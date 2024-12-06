@@ -135,7 +135,7 @@ $result_domande = $stmt_domande->get_result();
                                 >
                                 <div class="ms-3">
                                     <label>Tipo di domanda:</label>
-                                    <select id="question_type" name="question_type" onchange="aggiornaTipoDomanda('.$row_domanda['id'].', this.value)">
+                                    <select id="question_type" name="question_type" onchange="aggiornaTipoDomanda(\''.$row_domanda['id'].'\', this.value)">
                                         <option value="APERTA" '. (($row_domanda['tipo'] == "APERTA") ? "selected": "") .' >Domanda Aperta</option>
                                         <option value="MULTIPLA" '. (($row_domanda['tipo'] == "MULTIPLA") ? "selected": "") .' >Scelta Multipla</option>
                                     </select>
@@ -159,7 +159,7 @@ $result_domande = $stmt_domande->get_result();
                         $stmt_opzioni->execute();
                         $result_opzioni = $stmt_opzioni->get_result();
 
-                        echo "<div class='options-list'>";
+                        echo "<div class='options-list' id='".$row_domanda['id']."_option-list'>";
                         while ($row_opzione = $result_opzioni->fetch_assoc()) {
                             // print_r($row_opzione);
                             echo "<div class='form-check'>
@@ -169,13 +169,13 @@ $result_domande = $stmt_domande->get_result();
                             id='option_".$row_opzione['id']."' 
                             value='" . $row_opzione['testo_opzione'] . "'
                             style='background: transparent; outline: none;'
-                            onblur='aggiornaOpzione('".$row_opzione['id']."', this.value)'>
+                            onblur='aggiornaOpzione(\"".$row_opzione['id']."\", this.value)'>
                                   </div>";
                         }
                         echo '  <div class="form-check">
                                     <div class="text-left mt-3">
                                         <button class="btn btn-success rounded-pill d-flex align-items-center justify-content-center" 
-                                                style="width: 10vh; height: 4vh;" onclick="aggiungiOpzione()">
+                                                style="width: 10vh; height: 4vh;" onclick="aggiungiOpzione(\''.$row_domanda['id'].'\');">
                                             <span style="color: white; font-size: 24px;">+</span>
                                         </button>
                                     </div>
@@ -245,7 +245,7 @@ $result_domande = $stmt_domande->get_result();
                                         location.reload();
                                     }else{
                                         var container_div = document.getElementById(questionID+"_question-container");
-                                        container_div.innerHTML = "";                                        
+                                        container_div.innerHTML = data.HTML_CODE;                                        
                                         }
                                     });
 
@@ -289,6 +289,35 @@ $result_domande = $stmt_domande->get_result();
                         .then(data => {
                             if (!data.success) {
                                 alert('Errore durante l\'aggiornamento del titolo.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Errore nella richiesta:', error);
+                            alert('Errore durante la connessione al server.');
+                        });
+                }
+
+                function aggiungiOpzione(domandaID){
+                    event.preventDefault();
+                    console.log(domandaID);
+                    fetch('../../backend/API/add_new_option.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ id: domandaID })
+                        
+                        
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            
+                            if (!data.success) {
+                                alert('Errore durante l\'aggiunta della domanda.');
+                            }else{
+                                var option_list = document.getElementById(domandaID + "_option-list");
+                                option_list.innerHTML += data.HTML_CODE;
                             }
                         })
                         .catch(error => {
