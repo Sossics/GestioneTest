@@ -162,7 +162,7 @@ $result_domande = $stmt_domande->get_result();
                         echo "<div class='options-list' id='".$row_domanda['id']."_option-list'>";
                         while ($row_opzione = $result_opzioni->fetch_assoc()) {
                             // print_r($row_opzione);
-                            echo "<div class='form-check'>
+                            echo "<div class='form-check' id=".$row_opzione['id']."_option-container>
                                     <input class='form-check-input' type='radio' name='question_{$row_domanda['id']}' id='option_{$row_opzione['id']}' disabled>
                                     <input type='text' class='border-0 border-bottom text-left' id='titolo'
                             name='question_".$row_domanda['id']."'
@@ -170,7 +170,8 @@ $result_domande = $stmt_domande->get_result();
                             value='" . $row_opzione['testo_opzione'] . "'
                             style='background: transparent; outline: none;'
                             onblur='aggiornaOpzione(\"".$row_opzione['id']."\", this.value)'>
-                                  </div>";
+                            <button type=\"button\" class='btn btn-light' onclick='eliminaOpzione(\"".$row_opzione['id']."\")'><span class='text-danger'>x</span></button>
+                            </div>";
                         }
                         echo '  <div class="form-check">
                                     <div class="text-left mt-3">
@@ -317,13 +318,47 @@ $result_domande = $stmt_domande->get_result();
                                 alert('Errore durante l\'aggiunta della domanda.');
                             }else{
                                 var option_list = document.getElementById(domandaID + "_option-list");
-                                option_list.innerHTML += data.HTML_CODE;
+            
+                                var tempDiv = document.createElement("div");
+                                tempDiv.innerHTML = data.HTML_CODE;
+
+                                var buttonDiv = option_list.querySelector('.form-check:last-child');
+
+                                if (buttonDiv) {
+                                    option_list.insertBefore(tempDiv.firstChild, buttonDiv);
+                                }
                             }
                         })
                         .catch(error => {
                             console.error('Errore nella richiesta:', error);
                             alert('Errore durante la connessione al server.');
                         });
+                }
+
+                function eliminaOpzione(optionID){
+                    event.preventDefault();
+                    fetch('../../backend/API/delete_option.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ id: optionID })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (!data.success) {
+                                alert('Errore durante l\'eliminazione del titolo.');
+                            }else{
+                                console.log("GODO");
+                                var element = document.getElementById(optionID + "_option-container");
+                                element.parentNode.removeChild(element);                   
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Errore nella richiesta:', error);
+                            alert('Errore durante la connessione al server.');
+                        });
+
                 }
         </script>
 
