@@ -79,7 +79,7 @@ $result = $stmt->get_result();
             <form method="GET" class="d-flex justify-content-between">
                 <input type="text" name="filter" class="form-control me-2" placeholder="Cerca sessione..."
                     value="<?php echo htmlspecialchars($filter); ?>">
-                <button type="submit" class="btn btn-primary">Cerca</button>
+                <button type="submit" class="btn btn-primary me-2">Cerca</button>
                 <button type="submit" class="btn btn-success">Nuova</button>
             </form>
         </div>

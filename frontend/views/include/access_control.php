@@ -40,6 +40,7 @@ $availableURLsForRole = [
         "test.php",
         "profilo.php",
         "classi.php",
+        "visualizza_classe.php",
         "sessioni.php",
         "studenti.php",
         "aggiungi_classe.php",

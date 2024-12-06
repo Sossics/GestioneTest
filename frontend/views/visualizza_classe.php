@@ -3,22 +3,42 @@
 session_start();
 require("./../../backend/Include/db_connect.php");
 
-$filter = isset($_GET['filter']) ? trim($_GET['filter']) : '';
-
-$SQL_query = "SELECT 
-                nome, anno_scolastico, id
-            FROM 
-                classe";
-
-if ($filter !== '') {
-    $SQL_query .= " WHERE nome LIKE ?";
+if(!isset($_GET['id'])){
+    header("Location: classi.php");
 }
+
+$SQL_query = "  SELECT c.nome as nome
+            FROM classe
+            AS c 
+           WHERE c.id=? LIMIT 1";
 
 $stmt = $conn->prepare($SQL_query);
-if ($filter !== '') {
-    $like_filter = '%' . $filter . '%';
-    $stmt->bind_param("s", $like_filter);
+$stmt->bind_param("i", $_GET["id"]);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result && $result->num_rows > 0) {
+    $row=$result->fetch_assoc();
+    $nome_classe=$row["nome"];
+}else{
+    header("Location: classi.php");
 }
+
+
+
+$SQL_query = "  SELECT s.nome AS nome_studente, s.cognome AS cognome_studente, s.codice_fiscale AS cf_studente
+            FROM classe 
+            AS c
+            JOIN classe_studente
+            AS c_s
+            ON c.id = c_s.id_classe
+            JOIN utente
+            AS s
+            ON c_s.cf_studente = s.codice_fiscale
+            WHERE s.ruolo='STUDENTE' AND c.id=?";
+
+$stmt = $conn->prepare($SQL_query);
+$stmt->bind_param("i", $_GET["id"]);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
@@ -46,23 +66,20 @@ $result = $stmt->get_result();
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item active">Classi</li>
+                    <li class="breadcrumb-item"><a href="classi.php">Classi</a></li>
+                    <li class="breadcrumb-item active"><?php echo $nome_classe?> </li>
                 </ol>
             </nav>
         </div>
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2>Lista delle Classi</h2>
-            <form method="GET" class="d-flex">
-                <input type="text" name="filter" class="form-control me-2" placeholder="Cerca classe..."
-                    value="<?php echo htmlspecialchars($filter); ?>">
-                <button type="submit" class="btn btn-primary">Cerca</button>
-            </form>
+            <h2><?php echo $nome_classe?></h2>
         </div>
         <table class="table table-bordered table-striped">
             <thead class="table-primary">
                 <tr>
-                    <th>Nome Classe</th>
-                    <th>Anno Scolastico</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Codice fiscale</th>
                 </tr>
             </thead>
             <tbody>
@@ -70,8 +87,9 @@ $result = $stmt->get_result();
                 if ($result && $result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td> <a href=\" ./visualizza_classe.php?id=".$row['id']."\">" . htmlspecialchars($row['nome']) . "</a></td>";
-                        echo "<td>" . htmlspecialchars($row['anno_scolastico']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['nome_studente']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['cognome_studente']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['cf_studente']) . "</td>";
                         echo "</tr>";
                     }
                 } else {
