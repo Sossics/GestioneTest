@@ -16,13 +16,19 @@ header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include './../include/db_connect.php';
+    fwrite($f, "----------------NEW OPERATION----------------\n");
 
     $input = json_decode(file_get_contents('php://input'), true);
 
     $option_id = intval($input['id']);
+
+    fwrite($f, "Deleting option with ID: $option_id\n");
+    fwrite($f, "    Checking if option exists in DB, if yes delete.\n");
+    
     $stmt = $conn->prepare('DELETE FROM opzioni_domanda WHERE id=?');
     $stmt->bind_param('i', $option_id);
     if($stmt->execute()){
+        fwrite($f, "Deleted.\n");
         echo json_encode(['success' => true, 'error' => null]);
     }else{
         echo json_encode(['success' => false, 'error' => 'SQL error']);
