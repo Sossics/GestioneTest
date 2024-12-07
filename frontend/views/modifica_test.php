@@ -170,6 +170,11 @@ $result_domande = $stmt_domande->get_result();
                             value='" . $row_opzione['testo_opzione'] . "'
                             style='background: transparent; outline: none;'
                             onblur='aggiornaOpzione(\"".$row_opzione['id']."\", this.value)'>
+                            <input type='checkbox' class='form-check-input' 
+                            id='correct_option_{$row_opzione['id']}' 
+                            onclick='toggleCorrectOption(\"" . $row_opzione['id'] . "\", this.checked)' 
+                            " . ($row_opzione['corretta'] ? "checked" : "") . ">
+                            <label for='correct_option_{$row_opzione['id']}'>Corretta</label>
                             <button type=\"button\" class='btn btn-light' onclick='eliminaOpzione(\"".$row_opzione['id']."\")'><span class='text-danger'>x</span></button>
                             </div>";
                         }
