@@ -373,7 +373,11 @@ $result_domande = $stmt_domande->get_result();
                     if (!data.success) {
                         alert('Errore durante l\'aggiunta della domanda.');
                     } else {
+                        console.log(domandaID + "_option-list");
+                        
                         var option_list = document.getElementById(domandaID + "_option-list");
+                        console.log(option_list);
+                        
 
                         var tempDiv = document.createElement("div");
                         tempDiv.innerHTML = data.HTML_CODE;
