@@ -31,23 +31,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         fwrite($f, "Executed.\n");
         $last_id = $conn->insert_id;
         fwrite($f, "Generate HTML.\n");
-        $res = "<div class='form-check'>
-        <input class='form-check-input' 
-        type='radio' 
-        name='question_".$question_id."' 
-        id='option_$last_id' 
-        disabled>
-        
-        <input type='text' class='border-0 border-bottom text-left' 
-        id='titolo'
-        name='question_".$question_id."'
-        id='option_".$last_id."' value=''
-        style='background: transparent; outline: none;'
-        onblur=\"aggiornaOpzione('".$last_id."', this.value)\">
-        <input type='checkbox' class='form-check-input' 
-                            id='correct_option_$last_id' 
-                            onclick='toggleCorrectOption(\"" . $last_id . "\", this.checked)'>
-                            <label for='correct_option_$last_id'>Corretta</label>
+        $res = "<div class='form-check' id=".$last_id."_option-container>
+
+        <input type='text' class='border-0 border-bottom text-left'
+                                        name='question_".$question_id."'
+                                        id='option_".$last_id."' 
+                                        value=''
+                                        style='background: transparent; outline: none;'
+                                        onblur='aggiornaOpzione(\"".$last_id."\", this.value)'
+                                    >
+
+                                    <input type='checkbox' class='form-check-input' 
+                                    id='correct_option_$last_id' 
+                                    onclick='toggleCorrectOption(\"" . $last_id . "\", this.checked)'
+                                    >
                             <button type=\"button\" class='btn btn-light' onclick='eliminaOpzione(\"".$last_id."\")'><span class='text-danger'>x</span></button>
         </div>";
         fwrite($f, "Generated.\n");

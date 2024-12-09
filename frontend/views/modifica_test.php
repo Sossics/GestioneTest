@@ -13,7 +13,6 @@ if (isset($_GET['titolo'])) {
     $stmt_test = $conn->prepare($SQL_query_test);
     $stmt_test->bind_param('si', $new_title, $test_id);
     $stmt_test->execute();
-
 }
 
 // Test fetch
@@ -103,27 +102,12 @@ $result_domande = $stmt_domande->get_result();
         </div>
 
         <div class="text-center">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="input-group w-75">
-                    <input type="text" class="form-control fs-1 border-0 border-bottom text-center" id="titolo"
-                        name="titolo" value="<?php echo htmlspecialchars($row_test['titolo']); ?>"
-                        style="background: transparent; outline: none;"
-                        onblur="aggiornaTitolo('<?php echo $test_id; ?>', this.value)">
-                </div>
-
-                <div class="d-flex align-items-center w-25 justify-content-end">
-                    <select id="sort-questions" class="form-select me-3"
-                        onchange="aggiornaOrdinamento('<?php echo $test_id; ?>', this.value)">
-                        <option value="DEFAULT" selected>Predefinito</option>
-                        <option value="RANDOM">Random</option>
-                        <option value="POINT">Per Punteggio</option>
-                        <option value="TYPE">Per Tipologia</option>
-                    </select>
-                    <button class="btn btn-success" onclick="aggiungiDomanda('<?php echo $test_id; ?>')">Aggiungi
-                        Domanda</button>
-                </div>
+            <div class="input-group mb-1 w-100">
+                <input type="text" class="form-control fs-1 border-0 border-bottom text-center" id="titolo"
+                    name="titolo" value="<?php echo htmlspecialchars($row_test['titolo']); ?>"
+                    style="background: transparent; outline: none;"
+                    onblur="aggiornaTitolo('<?php echo $test_id; ?>', this.value)">
             </div>
-
             <p class="text-center">
                 Creato da:
                 <?php echo ucfirst(strtolower($row_test['nome_docente'])) . " " . ucfirst(strtolower($row_test['cognome_docente'])); ?>
@@ -177,20 +161,27 @@ $result_domande = $stmt_domande->get_result();
                         echo "<div class='options-list' id='" . $row_domanda['id'] . "_option-list'>";
                         while ($row_opzione = $result_opzioni->fetch_assoc()) {
                             // print_r($row_opzione);
-                            echo "<div class='form-check' id=" . $row_opzione['id'] . "_option-container>
-                                    <input class='form-check-input' type='radio' name='question_{$row_domanda['id']}' id='option_{$row_opzione['id']}' disabled>
-                                    <input type='text' class='border-0 border-bottom text-left' id='titolo'
-                            name='question_" . $row_domanda['id'] . "'
-                            id='option_" . $row_opzione['id'] . "' 
-                            value='" . $row_opzione['testo_opzione'] . "'
-                            style='background: transparent; outline: none;'
-                            onblur='aggiornaOpzione(\"" . $row_opzione['id'] . "\", this.value)'>
-                            <input type='checkbox' class='form-check-input' 
-                            id='correct_option_{$row_opzione['id']}' 
-                            onclick='toggleCorrectOption(\"" . $row_opzione['id'] . "\", this.checked)' 
-                            " . ($row_opzione['corretta'] ? "checked" : "") . ">
-                            <label for='correct_option_{$row_opzione['id']}'>Corretta</label>
-                            <button type=\"button\" class='btn btn-light' onclick='eliminaOpzione(\"" . $row_opzione['id'] . "\")'><span class='text-danger'>x</span></button>
+                            echo "
+                            <div class='form-check' id=" . $row_opzione['id'] . "_option-container>
+
+                                     
+
+                                    <input type='text' class='border-0 border-bottom text-left'
+                                        name='question_" . $row_domanda['id'] . "'
+                                        id='option_" . $row_opzione['id'] . "' 
+                                        value='" . $row_opzione['testo_opzione'] . "'
+                                        style='background: transparent; outline: none;'
+                                        onblur='aggiornaOpzione(\"" . $row_opzione['id'] . "\", this.value)'
+                                    >
+
+                                    <input type='checkbox' class='form-check-input' 
+                                    id='correct_option_{$row_opzione['id']}' 
+                                    onclick='toggleCorrectOption(\"" . $row_opzione['id'] . "\", this.checked)' 
+                                    " . ($row_opzione['corretta'] ? "checked" : "") . "
+                                    >
+
+
+                                    <button type=\"button\" class='btn btn-light' onclick='eliminaOpzione(\"" . $row_opzione['id'] . "\")'><span class='text-danger'>x</span></button>
                             </div>";
                         }
                         echo '  <div class="form-check">
@@ -212,19 +203,39 @@ $result_domande = $stmt_domande->get_result();
         </form>
     </div>
 
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="save-toast" class="toast align-items-center text-bg-light border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <!-- Messaggi saranno aggiornati dinamicamente -->
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <?php include("components/footer.php") ?>
     <script>
         feather.replace();
 
+        const toastElement = document.getElementById('save-toast');
+        const toastBody = toastElement.querySelector('.toast-body');
+        const bsToast = new bootstrap.Toast(toastElement);
+
         function aggiornaTitolo(testID, titolo) {
+            toastBody.textContent = 'Salvataggio in corso...';
+            bsToast.show();
             fetch('../../backend/API/change_test_title.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ id: testID, titolo: titolo })
-            })
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: testID,
+                        titolo: titolo
+                    })
+                })
                 .then(response => response.json())
                 .then(data => {
                     if (!data.success) {
@@ -235,16 +246,22 @@ $result_domande = $stmt_domande->get_result();
                     console.error('Errore nella richiesta:', error);
                     alert('Errore durante la connessione al server.');
                 });
+            toastBody.textContent = 'Salvato.';
         }
 
         function aggiornaTipoDomanda(questionID, tipo) {
+            toastBody.textContent = 'Salvataggio in corso...';
+            bsToast.show();
             fetch('../../backend/API/change_test_question_type.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ id: questionID, tipo: tipo })
-            })
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: questionID,
+                        tipo: tipo
+                    })
+                })
                 .then(response => response.json())
                 .then(data => {
                     if (!data.success) {
@@ -253,12 +270,14 @@ $result_domande = $stmt_domande->get_result();
 
                         //Fetch new Question HTML code from renderer
                         fetch('../../backend/API/render_question.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({ id: questionID })
-                        })
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    id: questionID
+                                })
+                            })
                             .then(render_response => render_response.json())
                             .then(data => {
                                 if (!data.success) {
@@ -276,16 +295,22 @@ $result_domande = $stmt_domande->get_result();
                     console.error('Errore nella richiesta:', error);
                     alert('Errore durante la connessione al server.');
                 });
+            toastBody.textContent = 'Salvato.';
         }
 
         function aggiornaDomanda(questionID, domanda) {
+            toastBody.textContent = 'Salvataggio in corso...';
+            bsToast.show();
             fetch('../../backend/API/change_test_question.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ id: questionID, domanda: domanda })
-            })
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: questionID,
+                        domanda: domanda
+                    })
+                })
                 .then(response => response.json())
                 .then(data => {
                     if (!data.success) {
@@ -296,16 +321,22 @@ $result_domande = $stmt_domande->get_result();
                     console.error('Errore nella richiesta:', error);
                     alert('Errore durante la connessione al server.');
                 });
+            toastBody.textContent = 'Salvato.';
         }
 
         function aggiornaOpzione(optionID, opzione) {
+            toastBody.textContent = 'Salvataggio in corso...';
+            bsToast.show();
             fetch('../../backend/API/change_test_option.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ id: optionID, opzione: opzione })
-            })
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: optionID,
+                        opzione: opzione
+                    })
+                })
                 .then(response => response.json())
                 .then(data => {
                     if (!data.success) {
@@ -316,20 +347,25 @@ $result_domande = $stmt_domande->get_result();
                     console.error('Errore nella richiesta:', error);
                     alert('Errore durante la connessione al server.');
                 });
+            toastBody.textContent = 'Salvato.';
         }
 
         function aggiungiOpzione(domandaID) {
+            toastBody.textContent = 'Salvataggio in corso...';
+            bsToast.show();
             event.preventDefault();
             console.log(domandaID);
             fetch('../../backend/API/add_new_option.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ id: domandaID })
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: domandaID
+                    })
 
 
-            })
+                })
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
@@ -353,17 +389,22 @@ $result_domande = $stmt_domande->get_result();
                     console.error('Errore nella richiesta:', error);
                     alert('Errore durante la connessione al server.');
                 });
+            toastBody.textContent = 'Salvato.';
         }
 
         function eliminaOpzione(optionID) {
+            toastBody.textContent = 'Salvataggio in corso...';
+            bsToast.show();
             event.preventDefault();
             fetch('../../backend/API/delete_option.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ id: optionID })
-            })
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: optionID
+                    })
+                })
                 .then(response => response.json())
                 .then(data => {
                     if (!data.success) {
@@ -379,39 +420,37 @@ $result_domande = $stmt_domande->get_result();
                     alert('Errore durante la connessione al server.');
                 });
 
+            toastBody.textContent = 'Salvato.';
         }
 
-        function aggiungiDomanda(testID) {
-            alert("Funzione ancora in sviluppo :(");
-            return;
-            const form = document.getElementById('test-form');
-
-            fetch('../../backend/API/new_question.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ id: testID })
-            })
+        function toggleCorrectOption(optionID, is_checked) {
+            toastBody.textContent = 'Salvataggio in corso...';
+            bsToast.show();
+            fetch('../../backend/API/toggle_correct_option.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: optionID,
+                        isChecked: is_checked
+                    })
+                })
                 .then(response => response.json())
                 .then(data => {
                     if (!data.success) {
-                        alert('Errore durante l\'aggiunta della domanda.');
+                        alert('Errore durante l\'eliminazione del titolo.');
                     } else {
                         console.log("GODO");
-                        const newQuestion = document.createElement('div');
-                        newQuestion.className = 'question-container mb-3';
-                        newQuestion.id = `question-container_${data.newQuestionID}`;
-
-                        newQuestion.innerHTML = ``;
-
-                        form.insertBefore(newQuestion, form.firstChild);
+                        var checkbox = document.getElementById("correct_option_" + optionID);
+                        checkbox.checked = data.is_checked;
                     }
                 })
                 .catch(error => {
                     console.error('Errore nella richiesta:', error);
                     alert('Errore durante la connessione al server.');
                 });
+            toastBody.textContent = 'Salvato.';
         }
     </script>
 
