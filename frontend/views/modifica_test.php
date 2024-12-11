@@ -102,13 +102,28 @@ $result_domande = $stmt_domande->get_result();
         </div>
 
         <div class="text-center">
-            <div class="input-group mb-1 w-100">
-                <input type="text" class="form-control fs-1 border-0 border-bottom text-center" id="titolo"
-                    name="titolo" value="<?php echo htmlspecialchars($row_test['titolo']); ?>"
-                    style="background: transparent; outline: none;"
-                    onblur="aggiornaTitolo('<?php echo $test_id; ?>', this.value)">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="input-group w-75">
+                    <input type="text" class="form-control fs-1 border-0 border-bottom text-center" id="titolo"
+                        name="titolo" value="<?php echo htmlspecialchars($row_test['titolo']); ?>"
+                        style="background: transparent; outline: none;"
+                        onblur="aggiornaTitolo('<?php echo $test_id; ?>', this.value)">
+                </div>
+
+                <div class="d-flex align-items-center w-25 justify-content-end">
+                    <select id="sort-questions" class="form-select me-3"
+                        onchange="aggiornaOrdinamento('<?php echo $test_id; ?>', this.value)">
+                        <option value="DEFAULT" selected>Predefinito</option>
+                        <option value="RANDOM">Random</option>
+                        <option value="POINT">Per Punteggio</option>
+                        <option value="TYPE">Per Tipologia</option>
+                    </select>
+                    <!-- <button class="btn btn-success" onclick="aggiungiDomanda('<?php echo $test_id; ?>')">Aggiungi
+                        Domanda</button> -->
+                </div>
             </div>
-            <p class="text-center">
+
+            <p class="text-center w-75">
                 Creato da:
                 <?php echo ucfirst(strtolower($row_test['nome_docente'])) . " " . ucfirst(strtolower($row_test['cognome_docente'])); ?>
             </p>
@@ -199,6 +214,12 @@ $result_domande = $stmt_domande->get_result();
             } else {
                 echo "<p>Non ci sono domande per questo test.</p>";
             }
+            echo "  <div class='m-3 d-flex justify-content-center question-adder'>
+                        <button class='btn btn-success rounded-pill d-flex align-items-center justify-content-center'
+                                style='width: 6vh; height: 4vh;' onclick='aggiungiDomanda(\"". $test_id . "\", this);'>
+                            <span style='color: white; font-size: 24px;'>+</span>
+                        </button>   
+                    </div>";
             ?>
         </form>
     </div>
@@ -374,10 +395,10 @@ $result_domande = $stmt_domande->get_result();
                         alert('Errore durante l\'aggiunta della domanda.');
                     } else {
                         console.log(domandaID + "_option-list");
-                        
+
                         var option_list = document.getElementById(domandaID + "_option-list");
                         console.log(option_list);
-                        
+
 
                         var tempDiv = document.createElement("div");
                         tempDiv.innerHTML = data.HTML_CODE;
@@ -455,6 +476,42 @@ $result_domande = $stmt_domande->get_result();
                     alert('Errore durante la connessione al server.');
                 });
             toastBody.textContent = 'Salvato.';
+        }
+
+        function aggiungiDomanda(testID, HTML_ELEM_CALLER) {
+
+            
+
+            fetch('../../backend/API/new_question.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: testID
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.success) {
+                        alert('Errore durante l\'aggiunta della domanda.');
+                    } else {
+                        console.log("GODO");
+                        const newQuestion = document.createElement('div');
+                        newQuestion.className = 'question-container mb-3';
+                        newQuestion.id = question - container_$ {
+                            data.newQuestionID
+                        };
+
+                        newQuestion.innerHTML = ``;
+
+                        form.insertBefore(newQuestion, form.firstChild);
+                    }
+                })
+                .catch(error => {
+                    console.error('Errore nella richiesta:', error);
+                    alert('Errore durante la connessione al server.');
+                });
         }
     </script>
 
