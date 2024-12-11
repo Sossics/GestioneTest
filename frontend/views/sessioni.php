@@ -1,9 +1,38 @@
 <?php
 
+$logDir = __DIR__ . "/debug";
+if (!is_dir($logDir)) {
+    mkdir($logDir, 0777, true);
+}
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__.'/debug/log.txt');
+
 session_start();
 require("./../../backend/Include/db_connect.php");
 
 $filter = isset($_GET['filter']) ? trim($_GET['filter']) : '';
+
+if(isset($_POST["elimina"])){
+
+    $SQL_query = "  DELETE FROM tentativo
+                    WHERE sessione_id = ? ";
+
+    $stmt = $conn->prepare($SQL_query);
+    $stmt->bind_param("i", $_POST["elimina"]);
+    if($stmt->execute()){
+
+        $SQL_query = "  DELETE FROM sessione
+                        WHERE id = ? ";
+    
+        $stmt = $conn->prepare($SQL_query);
+        $stmt->bind_param("i", $_POST["elimina"]);
+        $stmt->execute();
+    }
+
+}
 
 $SQL_query = "SELECT 
                 s.id AS sessione_id,
@@ -83,6 +112,7 @@ $result = $stmt->get_result();
                 <button type="submit" class="btn btn-success">Nuova</button>
             </form>
         </div>
+        <form action="sessioni.php" method="post">
         <table class="table table-bordered table-striped">
             <thead class="table-primary">
                 <tr>
@@ -99,7 +129,7 @@ $result = $stmt->get_result();
                 d_t.nome AS test_docente_nome,
                 d_t.cognome AS test_docente_cognome,
                 c.nome AS classe_nome -->
-                    <th>N°</th>
+                    <th>Elimina</th>
                     <th>Assegnata A</th>
                     <th>Creato Da</th>
                     <th>Inizio</th>
@@ -113,7 +143,7 @@ $result = $stmt->get_result();
                 if ($result && $result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . htmlspecialchars($row['sessione_id']) . "</td>";
+                        echo "<td> <button type=\"submit\" value=\"".$row['sessione_id']."\" name=\"elimina\" class=\"btn btn-danger\">X</button></td>";
                         echo "<td>" . htmlspecialchars($row['classe_nome']) . "</td>";
                         echo "<td>" . htmlspecialchars(ucfirst(strtolower($row['sessione_docente_nome'])) . " " . ucfirst(strtolower($row['sessione_docente_cognome']))) . "</td>";
                         echo "<td>" . htmlspecialchars($row['sessione_inizio']) . "</td>";
@@ -123,11 +153,12 @@ $result = $stmt->get_result();
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='3' class='text-center'>Nessun studente trovato</td></tr>";
+                    echo "<tr><td colspan='7' class='text-center'>Nessuna sessione trovata</td></tr>";
                 }
                 ?>
             </tbody>
         </table>
+        </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <?php include("components/footer.php")?>
