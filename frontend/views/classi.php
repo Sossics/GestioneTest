@@ -56,16 +56,10 @@ $result = $stmt->get_result();
                 <input type="text" name="filter" class="form-control me-2" placeholder="Cerca classe..."
                     value="<?php echo htmlspecialchars($filter); ?>">
                 <button type="submit" class="btn btn-primary me-2">Cerca</button>
-                <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Nuova</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuovaClasse">Nuova</button>
             </form>
         </div>
-
-            
-
-
-        
-        
-        
+  
         
         <table class="table table-bordered table-striped">
             <thead class="table-primary">
@@ -92,21 +86,30 @@ $result = $stmt->get_result();
     </div>
     
     
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="nuovaClasse" tabindex="-1" aria-labelledby="titoloModal" aria-hidden="true">
     <div class="modal-dialog">
+        <form action="classi.php" method="post">
         <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <h1 class="modal-title fs-5" id="titoloModal">Aggiunta Classe</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            ...
+            
+            <label for="nome_classe" class="col-form-label">Nome: </label>
+            <input type="text" class="form-control" id="nome_classe-name" name="nome_classe" required>
+
+            <label for="anno_classe" class="col-form-label">Anno: </label>
+            <input type="text" id="anno_classe" class="form-control" name="anno_classe" maxlength="9" minlength="9" placeholder="20../20.." required>
+
         </div>
+
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+            <button type="submit" class="btn btn-primary">Aggiungi</button>
         </div>
         </div>
+        </form>
     </div>
     </div>
     
