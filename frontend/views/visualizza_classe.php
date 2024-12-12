@@ -93,7 +93,7 @@ $result = $stmt->get_result();
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='2' class='text-center'>Nessuna classe trovata</td></tr>";
+                    echo "<tr><td colspan='3' class='text-center'>Nessun studente trovato</td></tr>";
                 }
                 ?>
             </tbody>

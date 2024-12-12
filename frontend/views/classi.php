@@ -97,7 +97,7 @@ $result = $stmt->get_result();
         <div class="modal-body">
             
             <label for="nome_classe" class="col-form-label">Nome: </label>
-            <input type="text" class="form-control" id="nome_classe-name" name="nome_classe" required>
+            <input type="text" class="form-control" id="nome_classe" name="nome_classe" required>
 
             <label for="anno_classe" class="col-form-label">Anno: </label>
             <input type="text" id="anno_classe" class="form-control" name="anno_classe" maxlength="9" minlength="9" placeholder="20../20.." required>
@@ -106,7 +106,7 @@ $result = $stmt->get_result();
 
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-            <button type="submit" class="btn btn-primary">Aggiungi</button>
+            <button type="button" class="btn btn-primary" onclick='aggiungiClasse(this);' >Aggiungi</button>
         </div>
         </div>
         </form>
@@ -116,6 +116,45 @@ $result = $stmt->get_result();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+            function aggiungiClasse(context){
+
+                const nome = document.getElementById("nome_classe").value;
+                const anno = document.getElementById("anno_classe").value;
+                console.log(nome);
+                console.log(anno);
+                
+
+                fetch('../../backend/API/add_new_class.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            nome: nome,
+                            anno: anno,
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.success) {
+                            alert('Errore durante l\'aggiornamento del titolo.');
+                        }
+                    })
+                    .catch(error => {   
+                        console.error('Errore nella richiesta:', error);
+                        alert('Errore durante la connessione al server.');
+                    });
+
+                    location.reload();
+
+            }
+
+
+
+    </script>
     
 </body>
 

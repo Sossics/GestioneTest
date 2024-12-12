@@ -1,0 +1,42 @@
+----------------NEW OPERATION----------------
+----------------NEW OPERATION----------------
+----------------NEW OPERATION----------------
+----------------NEW OPERATION----------------
+Adding a new class with nome=Array and anno=Array
+Adding a new class with nome=Array and anno=Array
+----------------NEW OPERATION----------------
+Adding a new class with nome=Array and anno=Array----------------NEW OPERATION----------------
+Adding a new class with nome=Array and anno=Array----------------NEW OPERATION----------------
+Adding a new class with nome=Array and anno=Array----------------NEW OPERATION----------------
+----------------NEW OPERATION----------------
+----------------NEW OPERATION----------------
+----------------NEW OPERATION----------------
+array (
+  'nome' => 
+  array (
+  ),
+  'anno' => 
+  array (
+  ),
+)----------------NEW OPERATION----------------
+array (
+  'nome' => 
+  array (
+  ),
+  'anno' => 
+  array (
+  ),
+)----------------NEW OPERATION----------------
+array (
+  'nome' => '5CEA',
+  'anno' => '2024/2025',
+)    Checking if row exists. If yes, update.
+    Row detected. Updating...
+Updated.
+----------------NEW OPERATION----------------
+array (
+  'nome' => '5DEA',
+  'anno' => '2024/2025',
+)    Checking if row exists. If yes, update.
+    Row detected. Updating...
+Updated.
