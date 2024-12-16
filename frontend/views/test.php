@@ -249,6 +249,8 @@ switch($_SESSION['user']['ruolo']){
 
             echo "</tbody>";
             echo "</table>";
+            if()
+            echo "<button class='btn btn-success fs-6'>Avvia un Tentativo</button>";
         } else {
 
             if (isset($result) && $result->num_rows > 0) {
