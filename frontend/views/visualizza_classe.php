@@ -155,14 +155,15 @@ $result = $stmt->get_result();
                 e.preventDefault();
                 const selectedCheckboxes = document.querySelectorAll('input[name="studenti[]"]:checked');
                 const selectedValues = Array.from(selectedCheckboxes).map(checkbox => checkbox.value);
-                fetch("../../backend/API/fetchStudenti.php", {
+                fetch("../../backend/API/assignToClass.php", {
                     method: "POST",
-                    body: JSON.stringify({studenti: selectedValues, classe: <?=$_GET['id']?>})
+                    body: JSON.stringify({studenti: selectedValues, classe: "<?=$_GET['id']?>"})
                 })
                 .then(response => response.json())
                 .then(data => {
                     if(data.msg == 'success'){
                         closeModal();
+                        location.reload();
                     }
                 })
             });
