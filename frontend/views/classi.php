@@ -100,7 +100,12 @@ $result = $stmt->get_result();
             <input type="text" class="form-control" id="nome_classe" name="nome_classe" required>
 
             <label for="anno_classe" class="col-form-label">Anno: </label>
-            <input type="text" id="anno_classe" class="form-control" name="anno_classe" maxlength="9" minlength="9" placeholder="20../20.." required>
+            <!-- <input type="text" id="anno_classe" class="form-control" name="anno_classe" maxlength="9" minlength="9" placeholder="20../20.." required> -->
+            <select name="anno_classe" id="anno_classe" class="form-control">
+                <?php for ($current = (int) date('Y') - 10, $i = $current, $until = $i + 20; $i <= $until; $i++): ?>
+                    <option value="<?=$i;?>/<?=$i+1;?>"<?=($current === $i ? ' selected="selected"' : NULL);?>><?=$i;?>/<?=$i+1?></option>
+                <?php endfor; ?>
+            </select>
 
         </div>
 
@@ -142,13 +147,13 @@ $result = $stmt->get_result();
                         if (!data.success) {
                             alert('Errore durante l\'aggiornamento del titolo.');
                         }
+                        location.reload();
                     })
                     .catch(error => {   
                         console.error('Errore nella richiesta:', error);
                         alert('Errore durante la connessione al server.');
                     });
 
-                    location.reload();
 
             }
 
