@@ -16,10 +16,11 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         fwrite($f, "---------------- NEW OPERATION ----------------\n");
         include './../include/db_connect.php';
-        
-        $classe_id = isset($_POST['classe']) ? $_POST['classe'] : null;
-        $studenti = isset($_POST['studenti']) ? $_POST['studenti'] : [];
-        
+        $input = json_decode(file_get_contents('php://input'), true);
+        // fwrite($f, var_export($input,true));
+        $classe_id = isset($input['classe']) ? $input['classe'] : null;
+        $studenti = isset($input['studenti']) ? $input['studenti'] : [];
+        // fwrite($f, $classe_id."\n");
         fwrite($f, "Requested to assign ".sizeof($studenti)." students to class with ID: $classe_id\n");
         if ($classe_id === null) {
             fwrite($f, "Class ID not given, returning error...");
