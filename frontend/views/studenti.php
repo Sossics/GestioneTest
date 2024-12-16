@@ -57,7 +57,8 @@ $result = $stmt->get_result();
             <form method="GET" class="d-flex">
                 <input type="text" name="filter" class="form-control me-2" placeholder="Cerca studente..."
                     value="<?php echo htmlspecialchars($filter); ?>">
-                <button type="submit" class="btn btn-primary">Cerca</button>
+                <button type="submit" class="btn btn-primary me-2">Cerca</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuovoStudente">Aggiungi</button>
             </form>
         </div>
         <table class="table table-bordered table-striped">
@@ -85,7 +86,91 @@ $result = $stmt->get_result();
             </tbody>
         </table>
     </div>
+
+    <div class="modal fade" id="nuovoStudente" tabindex="-1" aria-labelledby="titoloModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="classi.php" method="post">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="titoloModal">Aggiunta Studente</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+            <label for="nome_studente" class="col-form-label">Nome: </label>
+            <input type="text" class="form-control" id="nome_studente" name="nome_studente" required>
+
+            <label for="cognome_studente" class="col-form-label">Cognome: </label>
+            <input type="text" class="form-control" id="cognome_studente" name="cognome_studente" required>
+
+            <label for="codice_studente" class="col-form-label">Codice fiscale: </label>
+            <input type="text" class="form-control" id="codice_studente" name="codice_studente" required>
+
+            
+            <label for="login_studente" class="col-form-label">Login: </label>
+            <input type="text" class="form-control" id="login_studente" name="login_studente" required>
+
+            <label for="password_studente" class="col-form-label">Password: </label>
+            <input type="text" class="form-control" id="password_studente" name="password_studente" value="password" required>
+            
+            <input type="hidden" name="ruolo_studente" id="ruolo_studente" value="STUDENTE">
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+            <button type="button" class="btn btn-primary" onclick='aggiungiStudente(this);' >Aggiungi</button>
+        </div>
+        </div>
+        </form>
+    </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+            function aggiungiStudente(context){
+
+                const nome = document.getElementById("nome_studente").value;
+                const cognome = document.getElementById("cognome_studente").value;
+                const codice = document.getElementById("codice_studente").value;
+                const login = document.getElementById("login_studente").value;
+                const password = document.getElementById("password_studente").value;
+                const ruolo = document.getElementById("ruolo_studente").value;
+                
+                fetch('../../backend/API/add_new_user.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            nome: nome,
+                            cognome: cognome,
+                            codice: codice,
+                            login: login,
+                            password: password,
+                            ruolo: ruolo,
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.success) {
+                            alert('Errore durante l\'aggiornamento del titolo.');
+                        }
+                        location.reload();
+                    })
+                    .catch(error => {   
+                        console.error('Errore nella richiesta:', error);
+                        alert('Errore durante la connessione al server.');
+                    });
+
+
+            }
+
+
+
+    </script>
 </body>
 
 </html>
