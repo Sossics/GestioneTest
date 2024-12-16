@@ -499,9 +499,7 @@ $result_domande = $stmt_domande->get_result();
                         console.log("GODO");
                         const newQuestion = document.createElement('div');
                         newQuestion.className = 'question-container mb-3';
-                        newQuestion.id = question - container_$ {
-                            data.newQuestionID
-                        };
+                        newQuestion.id = `question-container_${data.newQuestionID}`;
 
                         newQuestion.innerHTML = ``;
 
