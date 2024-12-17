@@ -1,2 +1,3 @@
-
-frontend/views/debug.txt
+**/log.txt
+**/debug.txt
+**/php_error.log
