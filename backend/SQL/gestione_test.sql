@@ -408,3 +408,4 @@ ALTER TABLE `risposta` ADD CONSTRAINT `fk_risposta_tentativo` FOREIGN KEY (`tent
 ALTER TABLE `risposta` ADD `punteggio` DOUBLE NOT NULL DEFAULT '0.0' AFTER `risposta_multipla_id`;
 ALTER TABLE `risposta` CHANGE `risposta_aperta` `risposta_aperta` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL, CHANGE `risposta_multipla_id` `risposta_multipla_id` INT(11) NULL;
 ALTER TABLE `sessione` ADD `max_tentativi_ammessi` INT NOT NULL DEFAULT '1' AFTER `visibilita_tentativi`;
+ALTER TABLE `tentativo` ADD COLUMN `punteggio` DOUBLE DEFAULT 0.0;
