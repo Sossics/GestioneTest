@@ -95,7 +95,7 @@ $result = $stmt->get_result();
 <body style="background-color: rgb(240, 235, 248);">
     <?php include("components/navbar.php") ?>
     <div class="container mt-5">
-        <?php if (isset($_POST['modifica'])): ?>
+        <?php if (isset($_POST['visualizza'])): ?>
 
             <?php
 
@@ -113,7 +113,7 @@ $result = $stmt->get_result();
                                     WHERE
                                         s.id=?";
             $stmt_test = $conn->prepare($SQL_query_test);
-            $stmt_test->bind_param("i", $_POST['modifica']);
+            $stmt_test->bind_param("i", $_POST['visualizza']);
             $stmt_test->execute();
             // var_export($stmt_test->error_list);
             $result_test = $stmt_test->get_result();
@@ -129,12 +129,12 @@ $result = $stmt->get_result();
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item"><a href="sessioni.php">Sessioni</a></li>
                         <li class="breadcrumb-item"><a href="sessioni.php"><?= $test_title ?></a></li>
-                        <li class="breadcrumb-item active">Modifica</li>
+                        <li class="breadcrumb-item active">Visualizza</li>
                     </ol>
                 </nav>
             </div>
 
-            <h2 class="text-center">Stai modificando le impostazioni di Sessione</h2>
+            <h2 class="text-center">Impostazioni della Sessione</h2>
 
             <form id="session-config-form" class="mt-5" onsubmit="return false;">
                 <div class="mb-3">
@@ -174,6 +174,62 @@ $result = $stmt->get_result();
 
                     <button type="button" class="btn btn-primary" onclick="submitConfig()">Salva impostazioni</button>
             </form>
+
+            <h2 class="text-center">Tentativi degli studenti</h2>
+            
+            <?php
+            
+                 $SQL_query_attempts = "SELECT
+                                            t.*, stu.nome AS s_nome, stu.cognome AS s_cognome
+                                        FROM
+                                            sessione AS s
+                                        JOIN
+                                            tentativo AS t
+                                        ON
+                                            s.id=t.sessione_id
+                                        JOIN
+                                            utente AS stu
+                                        ON
+                                            t.cf_studente=stu.codice_fiscale
+                                        WHERE
+                                            s.id=?
+                                        ORDER BY 
+                                            stu.nome, stu.cognome, t.data_tentativo
+                                        ASC";
+                $stmt_attempts = $conn->prepare($SQL_query_attempts);
+                $stmt_attempts->bind_param("i", $_POST['visualizza']);             
+                $stmt_attempts->execute();
+                $result_attempts = $stmt_attempts->get_result();
+            ?>
+                                
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome e Cognome</th>
+                        <th>Inviato il</th>
+                        <th>Punteggio Finale</th>
+                        <th>Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($result_attempts as $key => $row): ?>
+                    <tr>
+                        <td>
+                            <div><?= $row['s_nome']." ".$row['s_cognome'] ?></div>
+                        </td>
+                        <td>
+                            <div><?= $row['data_tentativo'] ?></div>
+                        </td>
+                        <td>
+                            <div><?= $row['punteggio'] ?></div>
+                        </td>
+                        <td>
+                            <div>Visualizza</div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
 
         <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-container"></div>
@@ -212,7 +268,7 @@ $result = $stmt->get_result();
                     d_t.nome AS test_docente_nome,
                     d_t.cognome AS test_docente_cognome,
                     c.nome AS classe_nome -->
-                        <th>Modifica</th>
+                        <th>Visualizza</th>
                         <th>Elimina</th>
                         <th>Assegnata A</th>
                         <th>Creato Da</th>
@@ -227,7 +283,7 @@ $result = $stmt->get_result();
                     if ($result && $result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td> <button type=\"submit\" value=\"" . $row['sessione_id'] . "\" name=\"modifica\" class=\"btn btn-primary\">Modifica</button></td>";
+                            echo "<td> <button type=\"submit\" value=\"" . $row['sessione_id'] . "\" name=\"visualizza\" class=\"btn btn-primary\">Visualizza</button></td>";
                             echo "<td> <button type=\"submit\" value=\"" . $row['sessione_id'] . "\" name=\"elimina\" class=\"btn btn-danger\">X</button></td>";
                             echo "<td>" . htmlspecialchars($row['classe_nome']) . "</td>";
                             echo "<td>" . htmlspecialchars(ucfirst(strtolower($row['sessione_docente_nome'])) . " " . ucfirst(strtolower($row['sessione_docente_cognome']))) . "</td>";
@@ -274,7 +330,7 @@ $result = $stmt->get_result();
                 attempt_visibility: attempt_visibility,
                 test_status: test_status,
                 max_attempts: max_attempts,
-                session_id: <?= $_POST['modifica'] ?? 'null' ?>
+                session_id: <?= $_POST['visualizza'] ?? 'null' ?>
             };
 
             fetch("../../backend/API/session_config.php", {
