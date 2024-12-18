@@ -1,6 +1,6 @@
 <?php
 
-var_export($_POST);
+// var_export($_POST);
 
 define('SECRET_KEY', 'g78gh789f4328h79g890aafzxvssfga72gfas');
 
@@ -13,23 +13,32 @@ function decryptId($encrypted) {
     return $id;
 }
 
+function encryptId($id) {
+    $method = 'AES-256-CBC';
+    $key = hash('sha256', SECRET_KEY, true);
+    $iv = openssl_random_pseudo_bytes(16);
+    $encryptedId = openssl_encrypt($id, $method, $key, 0, $iv);
+    return base64_encode($encryptedId . '::' . base64_encode($iv)); 
+}
+
 session_start();
 require("./../../backend/Include/db_connect.php");
 $filter = isset($_GET['filter']) ? trim($_GET['filter']) : '';
 
 if(isset($_POST['attempt_code'])){
     $SQL_check_attempt_existance = "SELECT
-                                        id AS attempt
+                                        id AS answer
                                     FROM
-                                        tentativo
+                                        risposta
                                     WHERE
-                                        id=?";
+                                        tentativo_id=?";
     $stmt_check_attempt_existance = $conn->prepare($SQL_check_attempt_existance);
     $decrypted_attempt_id = decryptId($_POST['attempt_code']);
     $stmt_check_attempt_existance->bind_param("i", $decrypted_attempt_id);
     $stmt_check_attempt_existance->execute();
     $result_check_attempt_existance = $stmt_check_attempt_existance->get_result();
     if($result_check_attempt_existance && $result_check_attempt_existance->num_rows > 0){
+        // echo "AIAAAA";
         unset($_POST['attempt_code']);
     }
 }
@@ -252,7 +261,9 @@ switch($_SESSION['user']['ruolo']){
             $SQL_query_fetch_tries = "SELECT
                                             COUNT(t.id) AS tentativi_usati,
                                             s.svolgibile AS test_status,
-                                            s.id AS session_id
+                                            s.id AS session_id,
+                                            s.max_tentativi_ammessi AS max_attempts,
+                                            s.visibilita_tentativi AS attempts_visibility
                                         FROM 
                                             sessione AS s
                                         LEFT JOIN
@@ -351,6 +362,10 @@ switch($_SESSION['user']['ruolo']){
                 }
             }else{
     
+                $max_attempts = $row_fetch_tries['max_attempts'];
+                $num_attempts = $row_fetch_tries['tentativi_usati'];
+                $visibile = $row_fetch_tries['attempts_visibility'];
+
                 echo "<table class='table table-bordered w-50'>";
                 echo "<tbody>
                         <tr>
@@ -363,38 +378,35 @@ switch($_SESSION['user']['ruolo']){
                         </tr>
                         <tr>
                             <th class='text-start'>Tentativi usati:</th>
-                            <td>" . $row_fetch_tries['tentativi_usati'] . "</td>
+                            <td>" . $row_fetch_tries['tentativi_usati'] . " su " . $max_attempts . "</td>
                         </tr>
                         
                         ";
     
                 $SQL_query_attempt_details = "SELECT 
-                        t.data_tentativo AS inviato_il,
-                        s.max_tentativi_ammessi AS max_attempts,
-                        s.visibilita_tentativi AS attempts_visibility,
-                        COUNT(t.id) AS count_attempts
-                      FROM 
-                        tentativo AS t
-                      JOIN 
-                        sessione AS s
-                      ON 
-                        t.sessione_id = s.id
-                      JOIN
-                        utente AS stu
-                      ON
-                        t.cf_studente = stu.codice_fiscale
-                      WHERE 
-                        s.test_id = ?
-                      AND
-                        stu.codice_fiscale=?";
+                                                    s.id AS session_id,
+													t.data_tentativo AS inviato_il,
+                                                    t.id AS attempt_id
+                                                FROM 
+                                                    sessione AS s
+                                                LEFT JOIN 
+                                                    tentativo AS t
+                                                ON 
+                                                    t.sessione_id = s.id
+                                                LEFT JOIN
+                                                    utente AS stu
+                                                ON
+                                                    t.cf_studente = stu.codice_fiscale
+                                                WHERE 
+                                                    s.test_id = ?
+                                                AND
+                                                    stu.codice_fiscale = ?";
     
                 $stmt_attempt_details = $conn->prepare($SQL_query_attempt_details);
                 $stmt_attempt_details->bind_param("is", $_POST['id'], $_SESSION['user']['codice_fiscale']);
                 $stmt_attempt_details->execute();
                 $result_attempt_details = $stmt_attempt_details->get_result();
-                $max_attempts = null;
-                $num_attempts = null;
-                $visibile = null;
+                
                 echo "<form action='visualizza_tentativo.php' method='POST'><table class='table table-bordered w-50 mt-4'>";
                 echo "<thead>
                         <tr>
@@ -408,38 +420,43 @@ switch($_SESSION['user']['ruolo']){
                         </tr>
                      </thead>";
                 echo "<tbody>";
+
+                // var_export($row_fetch_tries);
+            
     
                 if ($result_attempt_details->num_rows > 0) {
-                    while ($row_attempt = $result_attempt_details->fetch_assoc()) {
-                        if(!isset($max_attempts, $num_attempts, $visibile)){
-                            $max_attempts = $row_attempt['max_attempts'];
-                            $num_attempts = $row_attempt['count_attempts'];
-                            $visibile = $row_attempt['attempts_visibility'];
-                        }
-                        echo "<tr class='text-center'>";
-                        echo "<td>" . htmlspecialchars($row_attempt['inviato_il']) . "</td>";
-                        // echo "<td>" . htmlspecialchars($row_attempt['punteggio']) . "</td>";
-                        echo "<td>" . "N/D" . "</td>";
-                        // echo "<td>" . htmlspecialchars($row_attempt['valutazione']) . "</td>";
-                        echo "<td>" . "N/D" . "</td>";
-                        echo "<td>
-                                <input type='hidden' name='attempt_id' value='" . $row_attempt['inviato_il'] . "'>
-                                <input type='hidden' name='session_id' value='" . $row_fetch_tries['session_id'] . "'>
+                    $row_attempt = $result_attempt_details->fetch_assoc();
                 
-                                ".(($visibile) ? "<button class='btn btn-link show-answers' type='submit'>
-                                    Visualizza Risposte
-                                </button>" : "Non Visibile"). "
-                             </td>";
-                        echo "</tr>";
+                    if ($num_attempts > 0) {
+                        do {
+                            // var_export($row_attempt);
+                            echo "<tr class='text-center'>";
+                            echo "<td>" . htmlspecialchars($row_attempt['inviato_il']) . "</td>";
+                            echo "<td>" . "N/D" . "</td>";
+                            echo "<td>" . "N/D" . "</td>";
+                            echo "<td>
+                                    <input type='hidden' name='attempt_id' value='" . encryptId($row_attempt['attempt_id']) . "'>
+                                    " . (($visibile) ? "<button class='btn btn-link show-answers' type='submit'>
+                                        Visualizza
+                                    </button>" : "Non Visibile") . "
+                                 </td>";
+                            echo "</tr>";
+                        } while ($row_attempt = $result_attempt_details->fetch_assoc());
+                    } else {
+                        echo "<tr><td colspan='4' class='text-center'>Tentativi nascosti o non trovati</td></tr>";
                     }
                 } else {
+                    // $max_attempts = null;
+                    // $num_attempts = 0;
+                    // $visibile = null;
                     echo "<tr><td colspan='4' class='text-center'>Tentativi nascosti o non trovati</td></tr>";
                 }
     
                 echo "</tbody>";
                 echo "</table></form>";
                 // var_export($row_fetch_tries);
-                if($row_fetch_tries['test_status'] == 1 && $num_attempts < $max_attempts){
+                // echo "N Tentativi trovati:".$num_attempts." Tentativi Massimi:".$max_attempts;
+                if($row_fetch_tries['test_status'] == 1 && ($num_attempts < $max_attempts || $max_attempts == 0)){
                     echo "<button class='btn btn-success fs-6' onclick='startAttempt();'>Avvia un Tentativo</button>";
                 }
             }
@@ -512,8 +529,8 @@ switch($_SESSION['user']['ruolo']){
                     'Content-Type' : "application/json"
                 },
                 body: JSON.stringify({
-                        student_code: "<?=$_SESSION['user']['codice_fiscale']?>",
-                        session_code: "<?=$row_fetch_tries['session_id'] ?? ""?>"
+                        student_code: "<?=$_SESSION['user']['codice_fiscale'] ?? "null"?>",
+                        session_code: "<?=$row_fetch_tries['session_id'] ?? "null"?>"
                     })
             })
             .then(response => {
@@ -524,8 +541,8 @@ switch($_SESSION['user']['ruolo']){
             })
             .then(data => {
                 submitPostData('test.php', {
-                    id: <?= $_POST['id'] ?>,
-                    attempt_code: data.attempt_code
+                    id: <?= $_POST['id'] ?? 'null'?>,
+                    attempt_code: data.attempt_code ?? null
                 });
             })
             .catch(error => {
@@ -575,10 +592,10 @@ switch($_SESSION['user']['ruolo']){
                                 "Content-Type": "application/json"
                             },
                             body: JSON.stringify({
-                                studentID: "<?= $_SESSION['user']['codice_fiscale'] ?? ''?>",
-                                testID: "<?= $_POST['id'] ?? ''?>",
-                                attemptID: "<?= $_POST['attempt_code'] ?? ''?>",
-                                data: jsonData
+                                studentID: "<?= $_SESSION['user']['codice_fiscale'] ?? "null"?>",
+                                testID: "<?= $_POST['id'] ?? "null"?>",
+                                attemptID: "<?= $_POST['attempt_code'] ?? "null"?>",
+                                data: jsonData ?? '-1'
                             })
                         });
 
