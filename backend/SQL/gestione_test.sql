@@ -399,3 +399,12 @@ ALTER TABLE `risposta` ADD CONSTRAINT `fk_risposta_tentativo` FOREIGN KEY (`tent
 ALTER TABLE `sessione` ADD `visibilita_tentativi` BOOLEAN NOT NULL DEFAULT TRUE AFTER `svolgibile`;
 ALTER TABLE `tentativo` CHANGE `data_tentativo` `data_tentativo` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
 ALTER TABLE `gestione_test`.`tentativo` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`, `data_tentativo`) USING BTREE;
+DELETE FROM `gestione_test`.`tentativo`;
+ALTER TABLE `gestione_test`.`tentativo` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`) USING BTREE;
+ALTER TABLE gestione_test.risposta DROP FOREIGN KEY fk_risposta_tentativo;
+ALTER TABLE `tentativo` CHANGE `id` `id` INT NOT NULL AUTO_INCREMENT;
+ALTER TABLE `risposta` CHANGE `tentativo_id` `tentativo_id` INT NOT NULL;
+ALTER TABLE `risposta` ADD CONSTRAINT `fk_risposta_tentativo` FOREIGN KEY (`tentativo_id`) REFERENCES `tentativo`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `risposta` ADD `punteggio` DOUBLE NOT NULL DEFAULT '0.0' AFTER `risposta_multipla_id`;
+ALTER TABLE `risposta` CHANGE `risposta_aperta` `risposta_aperta` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL, CHANGE `risposta_multipla_id` `risposta_multipla_id` INT(11) NULL;
+ALTER TABLE `sessione` ADD `max_tentativi_ammessi` INT NOT NULL DEFAULT '1' AFTER `visibilita_tentativi`;
