@@ -93,6 +93,7 @@ $result = $stmt->get_result();
 </head>
 
 <body style="background-color: rgb(240, 235, 248);">
+
     <?php include("components/navbar.php") ?>
     <div class="container mt-5">
         <?php if (isset($_POST['visualizza'])): ?>
@@ -201,7 +202,7 @@ $result = $stmt->get_result();
                 $stmt_attempts->execute();
                 $result_attempts = $stmt_attempts->get_result();
             ?>
-                                
+
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -248,7 +249,7 @@ $result = $stmt->get_result();
                 <input type="text" name="filter" class="form-control me-2" placeholder="Cerca sessione..."
                     value="<?php echo htmlspecialchars($filter); ?>">
                 <button type="submit" class="btn btn-primary me-2">Cerca</button>
-                <button type="submit" class="btn btn-success">Nuova</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuovaSessione">Nuova</button>
             </form>
         </div>
         <form action="sessioni.php" method="post">
@@ -278,6 +279,8 @@ $result = $stmt->get_result();
                         <th>Creato Da</th>
                     </tr>
                 </thead>
+
+                
                 <tbody>
                     <?php
                     if ($result && $result->num_rows > 0) {
@@ -294,7 +297,7 @@ $result = $stmt->get_result();
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='7' class='text-center'>Nessuna sessione trovata</td></tr>";
+                        echo "<tr><td colspan='8' class='text-center'>Nessuna sessione trovata</td></tr>";
                     }
                     ?>
                 </tbody>
@@ -302,8 +305,126 @@ $result = $stmt->get_result();
         </form>
         </div>
     <?php endif; ?>
+
+
+    <div class="modal fade" id="nuovaSessione" tabindex="-1" aria-labelledby="titoloModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="sessioni.php" method="post">
+        <input type="hidden" id="id_doc" value="<?php echo $_SESSION["user"]["codice_fiscale"]?>">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="titoloModal">Aggiunta Sessione</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+            <label for="id_test" class="col-form-label">Test: </label>
+            <select name="id_test" id="id_test" class="form-control" >
+            <?php
+
+                $stmt = $conn->prepare("SELECT id, titolo 
+                                        FROM test WHERE cf_docente = ? ");
+                    $stmt->bind_param("s", $_SESSION["user"]["codice_fiscale"]);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    if ($result->num_rows > 0) {
+                       while ($row = $result->fetch_assoc()) {
+                            printf("<option value='%s'>%s</option>", $row['id'], $row['titolo']);
+                        }
+                    }else{
+                        printf("<option value='null'> -- Nessun test associato -- </option>");
+                    }
+
+            ?>
+            </select>
+
+            <label for="id_classe" class="col-form-label">Classe: </label>
+            <select name="id_classe" id="id_classe" class="form-control" >
+            <?php
+
+                $stmt = $conn->prepare("SELECT id, nome, anno_scolastico 
+                                        FROM classe");
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    if ($result->num_rows > 0) {
+                       while ($row = $result->fetch_assoc()) {
+                            printf("<option value='%s'>%s - %s</option>", $row['id'], $row['nome'], $row['anno_scolastico']);
+                        }
+                    }else{
+                        printf("<option value='null'> -- Nessuna classe trovata -- </option>");
+                    }
+
+            ?>
+            </select>
+
+            <label for="ora_inizio" class="col-form-label">Inizio: </label>
+            <input type="datetime-local" class="form-control" id="ora_inizio" name="ora_inizio" required>
+
+            <label for="ora_fine" class="col-form-label">Fine: </label>
+            <input type="datetime-local" class="form-control" id="ora_fine" name="ora_fine" required>
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+            <button type="button" class="btn btn-primary" onclick='aggiungiSessione(this);' >Aggiungi</button>
+        </div>
+        </div>
+        </form>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+
+        function aggiungiSessione(context){
+
+            const test_id = document.getElementById("id_test").value;
+            const classe_id = document.getElementById("id_classe").value;
+            const doc_id =  document.getElementById("id_doc").value;
+            const ora_inizio = document.getElementById("ora_inizio").value;
+            const ora_fine = document.getElementById("ora_fine").value;
+
+        fetch('../../backend/API/add_new_session.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    test_id: test_id,
+                    classe_id: classe_id,
+                    doc_id: doc_id,
+                    ora_inizio: ora_inizio,
+                    ora_fine: ora_fine,
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.success) {
+                    alert('Errore durante l\'aggiornamento del titolo.');
+                }
+                location.reload();
+            })
+            .catch(error => {   
+                console.error('Errore nella richiesta:', error);
+                alert('Errore durante la connessione al server.');
+            });
+
+
+        }
+
+
+
+
+
+
         function toggleSetting(setting, button) {
             const currentStatus = button.getAttribute("data-status");
             const newStatus = currentStatus === "1" ? "0" : "1";
