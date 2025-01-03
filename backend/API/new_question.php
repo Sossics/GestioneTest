@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <option value="MULTIPLA"  >Scelta Multipla</option>
                         </select>
                     </div>
+                    <button class="m-3 custom-btn" onclick="eliminaDomanda(event, {$last_id}, this)">X</button>
                 </div>
                 <div class='question-text'>
                     <label for='answer_{$last_id}'>Risposta:</label>
