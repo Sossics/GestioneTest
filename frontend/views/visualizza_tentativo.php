@@ -144,7 +144,18 @@ foreach ($risposte as $risposta) {
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                     <li class="breadcrumb-item"><a href="test.php">Test</a></li>
-                    <li class="breadcrumb-item"><a href="test.php">Visualizza</a></li>
+                    <?php if($_SESSION['user']['ruolo'] == "DOCENTE"): ?>
+                    <li class="breadcrumb-item">
+                        <form action="sessioni.php" method="post" style="display: inline;">
+                            <input type="hidden" name="visualizza" value="<?=$_SESSION['recently_visualized_session']?>">
+                            <button type="submit" style="border: none; background: none; padding: 0; color: blue; text-decoration: underline; cursor: pointer;">
+                                Visualizza
+                            </button>
+                        </form>
+                    </li>
+                    <?php else: ?>
+                        <li class="breadcrumb-item"><a href="test.php">Visualizza</a></li>
+                    <?php endif; ?>
                     <li class="breadcrumb-item active"><?php echo htmlspecialchars($row_test['titolo']); ?></li>
                 </ol>
             </nav>
@@ -182,8 +193,8 @@ foreach ($risposte as $risposta) {
                     echo htmlspecialchars($row_domanda['testo']);
                     echo "<span class='badge bg-secondary'>
                             <input type='text' class='form-control d-inline-block text-center' 
-                                style='width: 60px; padding: 2px; font-size: 0.9rem;' 
-                                value='{$punteggio_totale}' " . (($_SESSION['user']['ruolo'] == "STUDENTE") ? "disabled" : "") . ">
+                                style='width: 60px; padding: 2px; font-size: 0.9rem;'
+                                value='{$punteggio_totale}' " . (($_SESSION['user']['ruolo'] == "STUDENTE") ? "disabled" : "onchange=\"aggiornaPunteggio('" .  $attempt_id . "', '" . $row_domanda['id'] . "', this.value)\"") . ">
                          </span>";    
                     echo "</p>";
 
@@ -227,10 +238,58 @@ foreach ($risposte as $risposta) {
         </form>
     </div>
 
+    <?php if($_SESSION['user']['ruolo'] == "DOCENTE"): ?>
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="save-toast" class="toast align-items-center text-bg-light border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        <!-- Messaggi saranno aggiornati dinamicamente -->
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+    <?php endif;?>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <?php include("components/footer.php")?>
     <script>
         feather.replace();
+        <?php if($_SESSION['user']['ruolo'] == "DOCENTE"): ?>
+
+            const toastElement = document.getElementById('save-toast');
+            const toastBody = toastElement.querySelector('.toast-body');
+            const bsToast = new bootstrap.Toast(toastElement);
+
+            function aggiornaPunteggio(tentativoID, questionID, punteggio) {
+                toastBody.textContent = 'Salvataggio in corso...';
+                bsToast.show();
+                fetch('../../backend/API/change_answer_points.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            attempt_id: tentativoID,
+                            question_id: questionID,
+                            punteggio: punteggio
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.success) {
+                            alert('Errore durante l\'aggiornamento del punteggio.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Errore nella richiesta:', error);
+                        alert('Errore durante la connessione al server.');
+                    });
+                toastBody.textContent = 'Salvato.';
+            }
+        <?php endif;?>
     </script>
 </body>
 
