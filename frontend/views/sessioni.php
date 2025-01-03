@@ -13,6 +13,27 @@ ini_set('error_log', __DIR__ . '/debug/log.txt');
 session_start();
 require("./../../backend/Include/db_connect.php");
 
+define('SECRET_KEY', 'g78gh789f4328h79g890aafzxvssfga72gfas');
+
+function decryptId($encrypted) {
+    $method = 'AES-256-CBC';
+    $key = hash('sha256', SECRET_KEY, true);
+    list($encryptedData, $iv) = explode('::', base64_decode($encrypted), 2);
+    $iv = base64_decode($iv);
+    $id = openssl_decrypt($encryptedData, $method, $key, 0, $iv);
+    return $id;
+}
+
+function encryptId($id) {
+    $method = 'AES-256-CBC';
+    $key = hash('sha256', SECRET_KEY, true);
+    $iv = openssl_random_pseudo_bytes(16);
+    $encryptedId = openssl_encrypt($id, $method, $key, 0, $iv);
+    return base64_encode($encryptedId . '::' . base64_encode($iv)); 
+}
+
+var_export($_POST);
+
 $filter = isset($_GET['filter']) ? trim($_GET['filter']) : '';
 
 if (isset($_POST["elimina"])) {
@@ -215,35 +236,42 @@ $result = $stmt->get_result();
                 $stmt_attempts->execute();
                 $result_attempts = $stmt_attempts->get_result();
             ?>
-
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Nome e Cognome</th>
-                        <th>Inviato il</th>
-                        <th>Punteggio Finale</th>
-                        <th>Azioni</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($result_attempts as $key => $row): ?>
-                    <tr>
-                        <td>
-                            <div><?= $row['s_nome']." ".$row['s_cognome'] ?></div>
-                        </td>
-                        <td>
-                            <div><?= $row['data_tentativo'] ?></div>
-                        </td>
-                        <td>
-                            <div><?= $row['punteggio'] ?></div>
-                        </td>
-                        <td>
-                            <div>Visualizza</div>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
+            <form action="visualizza_tentativo.php" method="post">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nome e Cognome</th>
+                            <th>Inviato il</th>
+                            <th>Punteggio Finale</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php $_SESSION['recently_visualized_session'] = $_POST['visualizza']?>
+                    <?php foreach ($result_attempts as $key => $row): ?>
+                        <tr>
+                            <td>
+                                <div><?= $row['s_nome']." ".$row['s_cognome'] ?></div>
+                            </td>
+                            <td>
+                                <div><?= $row['data_tentativo'] ?></div>
+                            </td>
+                            <td>
+                                <div><?= $row['punteggio'] ?></div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="hidden" name="attempt_id" value="<?= encryptId($row['id']); ?>">
+                                    <button class='btn btn-link show-answers' type='submit'>
+                                        Visualizza
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </form>
         </div>
 
         <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-container"></div>
