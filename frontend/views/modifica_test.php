@@ -83,6 +83,25 @@ $result_domande = $stmt_domande->get_result();
         .form-control {
             font-size: 1rem;
         }
+
+        .custom-btn{
+            background-color: #dc3545 !important;
+            color: #fff !important;
+            transition: background-color 0.3s ease-in-out, transform 0.2s;
+            /* padding: 6px 10px; */
+            width: 6vh;
+            height: 4vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: none;
+        }   
+
+        .custom-btn:hover {
+            background-color: #c82333 !important;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -154,6 +173,7 @@ $result_domande = $stmt_domande->get_result();
                                         <option value="MULTIPLA" ' . (($row_domanda['tipo'] == "MULTIPLA") ? "selected" : "") . ' >Scelta Multipla</option>
                                     </select>
                                 </div>
+                                <button class="m-3 custom-btn" onclick="eliminaDomanda(event, \''.$row_domanda['id'].'\', this)">X</button>
                             </div>';
 
                     // tipo "APERTA"
@@ -504,6 +524,35 @@ $result_domande = $stmt_domande->get_result();
                         newQuestion.innerHTML = ``;
 
                         form.insertBefore(newQuestion, form.firstChild);
+                    }
+                })
+                .catch(error => {
+                    console.error('Errore nella richiesta:', error);
+                    alert('Errore durante la connessione al server.');
+                });
+        }
+
+        function eliminaDomanda(e, questionID, HTML_ELEM_CALLER) {
+
+            e.preventDefault();
+
+            fetch('../../backend/API/delete_question.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: questionID
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.success) {
+                        alert('Errore durante l\'eliminazione della domanda.');
+                    } else {
+                        console.log("GODO");
+                        const questionContainer = document.getElementById(questionID + "_question-container");
+                        questionContainer.parentNode.removeChild(questionContainer);
                     }
                 })
                 .catch(error => {
