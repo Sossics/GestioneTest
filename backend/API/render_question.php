@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <option value="MULTIPLA" ' . (($row_domanda['tipo'] == "MULTIPLA") ? "selected" : "") . ' >Scelta Multipla</option>
                     </select>
                 </div>
+                <button class="m-3 custom-btn" onclick="eliminaDomanda(event, \''.$row_domanda['id'].'\', this)">X</button>
             </div>';
 
         // tipo "APERTA"
@@ -84,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $res .= '  <div class="form-check">
                     <div class="text-left mt-3">
                         <button class="btn btn-success rounded-pill d-flex align-items-center justify-content-center" 
-                                style="width: 10vh; height: 4vh;" onclick="aggiungiOpzione(\''.$row_domanda['id'].'\')">
+                                style="width: 10vh; height: 4vh;" onclick="aggiungiOpzione(\''.$row_domanda['id'].'\', this)">
                             <span style="color: white; font-size: 24px;">+</span>
                         </button>
                     </div>
