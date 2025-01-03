@@ -506,6 +506,7 @@ switch($_SESSION['user']['ruolo']){
                     }
                     echo "</tbody>";
                     echo "</table>";
+                    echo '<div class="d-flex justify-content-center"><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuovoTest">Crea nuovo test</button></div>';
                 }
             } else {
                 if ($_SESSION['user']['ruolo'] == "STUDENTE") {
@@ -620,6 +621,68 @@ switch($_SESSION['user']['ruolo']){
         });
 
     </script>
+
+    <div class="modal fade" id="nuovoTest" tabindex="-1" aria-labelledby="titoloModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="test.php" method="post">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="titoloModal">Crea nuovo test</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+            <label for="nome_test" class="col-form-label">Nome del test: </label>
+            <input type="text" class="form-control" id="nome_test" name="nome_test" required>
+            
+            <input type="hidden" name="ruolo_studente" id="ruolo_studente" value="STUDENTE">
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+            <button type="button" class="btn btn-primary" onclick='aggiungiTest(this);' >Crea</button>
+        </div>
+        </div>
+        </form>
+    </div>
+    </div>
+
+    <script>
+
+        function aggiungiTest(context){
+
+            const nome = document.getElementById("nome_test").value;
+            const IDdoc = "<?php echo $_SESSION['user']['codice_fiscale'];?>";
+
+            fetch('../../backend/API/add_new_test.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nome: nome,
+                        IDdoc: IDdoc,
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.success) {
+                        alert('Errore durante l\'aggiornamento del titolo.');
+                    }
+                    location.reload();
+                })
+                .catch(error => {   
+                    console.error('Errore nella richiesta:', error);
+                    alert('Errore durante la connessione al server.');
+                });
+
+
+        }
+
+    </script>
+
+
 </body>
 
 </html>
