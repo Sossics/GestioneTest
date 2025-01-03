@@ -419,3 +419,5 @@ ALTER TABLE tentativo DROP FOREIGN KEY fk_tent_studente; ALTER TABLE tentativo A
 
 ALTER TABLE `utente` CHANGE `ruolo` `ruolo` ENUM('STUDENTE','DOCENTE','ADMIN','') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'STUDENTE';
 INSERT INTO utente (codice_fiscale, nome, cognome, login, password, ruolo) VALUES ('ADMADM00A00A000D', 'admin', 'admin', 'admin', 'admin', 'ADMIN');
+ALTER TABLE `domanda` DROP FOREIGN KEY `fk_domande_test`; ALTER TABLE `domanda` ADD CONSTRAINT `fk_domande_test` FOREIGN KEY (`test_id`) REFERENCES `test`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+ALTER TABLE `risposta` DROP FOREIGN KEY `fk_risposta_domanda`; ALTER TABLE `risposta` ADD CONSTRAINT `fk_risposta_domanda` FOREIGN KEY (`domanda_id`) REFERENCES `domanda`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
