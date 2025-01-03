@@ -222,7 +222,7 @@ $result_domande = $stmt_domande->get_result();
                         echo '  <div class="form-check">
                                     <div class="text-left mt-3">
                                         <button class="btn btn-success rounded-pill d-flex align-items-center justify-content-center" 
-                                                style="width: 10vh; height: 4vh;" onclick="aggiungiOpzione(\'' . $row_domanda['id'] . '\');">
+                                                style="width: 10vh; height: 4vh;" onclick="aggiungiOpzione(\'' . $row_domanda['id'] . '\', this);">
                                             <span style="color: white; font-size: 24px;">+</span>
                                         </button>
                                     </div>
@@ -326,6 +326,7 @@ $result_domande = $stmt_domande->get_result();
                                     alert('Errore durante il cambiamento del tipo di domanda');
                                     location.reload();
                                 } else {
+                                    // alert("Question id: " + questionID);
                                     var container_div = document.getElementById(questionID + "_question-container");
                                     container_div.innerHTML = data.HTML_CODE;
                                 }
@@ -392,49 +393,48 @@ $result_domande = $stmt_domande->get_result();
             toastBody.textContent = 'Salvato.';
         }
 
-        function aggiungiOpzione(domandaID) {
+        function aggiungiOpzione(domandaID, addButton) {
             toastBody.textContent = 'Salvataggio in corso...';
             bsToast.show();
             event.preventDefault();
             console.log(domandaID);
+
             fetch('../../backend/API/add_new_option.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        id: domandaID
-                    })
-
-
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: domandaID
                 })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
 
-                    if (!data.success) {
-                        alert('Errore durante l\'aggiunta della domanda.');
-                    } else {
-                        console.log(domandaID + "_option-list");
+                if (!data.success) {
+                    alert('Errore durante l\'aggiunta della domanda.');
+                } else {
+                    var option_list = addButton.closest('.options-list');
+                    console.log(option_list);
 
-                        var option_list = document.getElementById(domandaID + "_option-list");
-                        console.log(option_list);
-
-
+                    // Verifica che l'elemento option_list esista
+                    if (option_list) {
                         var tempDiv = document.createElement("div");
                         tempDiv.innerHTML = data.HTML_CODE;
 
-                        var buttonDiv = option_list.querySelector('.form-check:last-child');
-
-                        if (buttonDiv) {
-                            option_list.insertBefore(tempDiv.firstChild, buttonDiv);
-                        }
+                        // Aggiungi la nuova opzione come primo elemento
+                        option_list.insertBefore(tempDiv.firstChild, option_list.firstChild);
+                    } else {
+                        console.error('Elemento .options-list non trovato');
                     }
-                })
-                .catch(error => {
-                    console.error('Errore nella richiesta:', error);
-                    alert('Errore durante la connessione al server.');
-                });
+                }
+            })
+            .catch(error => {
+                console.error('Errore nella richiesta:', error);
+                alert('Errore durante la connessione al server.');
+            });
+
             toastBody.textContent = 'Salvato.';
         }
 
@@ -520,7 +520,7 @@ $result_domande = $stmt_domande->get_result();
                         console.log("GODO");
                         const newQuestion = document.createElement('div');
                         newQuestion.className = 'question-container mb-3';
-                        newQuestion.id = `question-container_${data.newQuestionID}`;
+                        newQuestion.id = `${data.newQuestionID}_question-container`;
 
                         newQuestion.innerHTML = data.HTML_CODE;
 
