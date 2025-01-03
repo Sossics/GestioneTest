@@ -425,3 +425,7 @@ ALTER TABLE `risposta` DROP FOREIGN KEY `fk_risposta_domanda`; ALTER TABLE `risp
 ALTER TABLE `sessione` DROP FOREIGN KEY `fk_sessione_classe`; ALTER TABLE `sessione` ADD CONSTRAINT `fk_sessione_classe` FOREIGN KEY (`classe_id`) REFERENCES `classe`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT; ALTER TABLE `sessione` DROP FOREIGN KEY `fk_sessione_docente`; 
 ALTER TABLE `sessione` ADD CONSTRAINT `fk_sessione_docente` FOREIGN KEY (`cf_docente`) REFERENCES `utente`(`codice_fiscale`) ON DELETE CASCADE ON UPDATE RESTRICT;
 ALTER TABLE `test` DROP FOREIGN KEY `fk_test_docente`; ALTER TABLE `test` ADD CONSTRAINT `fk_test_docente` FOREIGN KEY (`cf_docente`) REFERENCES `utente`(`codice_fiscale`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+ALTER TABLE `risposta` DROP FOREIGN KEY `fk_risposta_multipla_opzione`; ALTER TABLE `risposta` ADD CONSTRAINT `fk_risposta_multipla_opzione` FOREIGN KEY (`risposta_multipla_id`) REFERENCES `opzioni_domanda`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+ALTER TABLE `opzioni_domanda` DROP FOREIGN KEY `fk_opzioni_domanda`; ALTER TABLE `opzioni_domanda` ADD CONSTRAINT `fk_opzioni_domanda` FOREIGN KEY (`domanda_id`) REFERENCES `domanda`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+

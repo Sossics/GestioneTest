@@ -21,9 +21,20 @@ function encryptId($id) {
     return base64_encode($encryptedId . '::' . base64_encode($iv)); 
 }
 
+
 session_start();
 require("./../../backend/Include/db_connect.php");
 $filter = isset($_GET['filter']) ? trim($_GET['filter']) : '';
+
+if (isset($_POST["elimina"])) {
+    
+    $SQL_query = " DELETE FROM test WHERE test.id = ?";
+
+    $stmt = $conn->prepare($SQL_query);
+    $stmt->bind_param("s", $_POST["elimina"]);
+    $stmt->execute();
+
+}
 
 if(isset($_POST['attempt_code'])){
     $SQL_check_attempt_existance = "SELECT
@@ -471,7 +482,7 @@ switch($_SESSION['user']['ruolo']){
                             echo "<td>" . htmlspecialchars($row_attempt['inviato_il']) . "</td>";
                             echo "<td>" . "N/D" . "</td>";
                             echo "<td>" . "N/D" . "</td>";
-                    echo "<td>" . $row_attempt['attempt_id'] . "</td>";
+                   // echo "<td>" . $row_attempt['attempt_id'] . "</td>";
                             echo "<td>
                                     <input type='hidden' name='attempt_id' value='" . encryptId($row_attempt['attempt_id']) . "'>
                                     " . (($visibile) ? "<button class='btn btn-link show-answers' type='submit'>
@@ -516,9 +527,10 @@ switch($_SESSION['user']['ruolo']){
                     }
                 } else {
                     echo "<table class='table'>";
+                    echo "<form method='POST' action='test.php'>";
                     echo "<thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>Elimina</th>
                                         <th>Titolo</th>
                                         <th>Docente</th>
                                         <th>Domande</th>
@@ -528,7 +540,8 @@ switch($_SESSION['user']['ruolo']){
                     echo "<tbody>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . htmlspecialchars($row['test_id']) . "</td>";
+                        echo "<td> <button type=\"submit\" value=\"" . $row['test_id'] . "\" name=\"elimina\" class=\"btn btn-danger\">X</button></td>";
+                       // echo "<td>" . htmlspecialchars($row['test_id']) . "</td>";
                         echo "<td>" . htmlspecialchars($row['test_titolo']) . "</td>";
                         echo "<td>" . htmlspecialchars(ucfirst(strtolower($row['nome_docente'])) . " " . ucfirst(strtolower($row['cognome_docente']))) . "</td>";
                         echo "<td>" . htmlspecialchars($row['numero_domande']) . "</td>";
@@ -543,6 +556,7 @@ switch($_SESSION['user']['ruolo']){
                         echo "</tr>";
                     }
                     echo "</tbody>";
+                    echo "</form>";
                     echo "</table>";
                     echo '<div class="d-flex justify-content-center"><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuovoTest">Crea nuovo test</button></div>';
                 }
