@@ -421,3 +421,7 @@ ALTER TABLE `utente` CHANGE `ruolo` `ruolo` ENUM('STUDENTE','DOCENTE','ADMIN',''
 INSERT INTO utente (codice_fiscale, nome, cognome, login, password, ruolo) VALUES ('ADMADM00A00A000D', 'admin', 'admin', 'admin', 'admin', 'ADMIN');
 ALTER TABLE `domanda` DROP FOREIGN KEY `fk_domande_test`; ALTER TABLE `domanda` ADD CONSTRAINT `fk_domande_test` FOREIGN KEY (`test_id`) REFERENCES `test`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 ALTER TABLE `risposta` DROP FOREIGN KEY `fk_risposta_domanda`; ALTER TABLE `risposta` ADD CONSTRAINT `fk_risposta_domanda` FOREIGN KEY (`domanda_id`) REFERENCES `domanda`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+ALTER TABLE `sessione` DROP FOREIGN KEY `fk_sessione_classe`; ALTER TABLE `sessione` ADD CONSTRAINT `fk_sessione_classe` FOREIGN KEY (`classe_id`) REFERENCES `classe`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT; ALTER TABLE `sessione` DROP FOREIGN KEY `fk_sessione_docente`; 
+ALTER TABLE `sessione` ADD CONSTRAINT `fk_sessione_docente` FOREIGN KEY (`cf_docente`) REFERENCES `utente`(`codice_fiscale`) ON DELETE CASCADE ON UPDATE RESTRICT;
+ALTER TABLE `test` DROP FOREIGN KEY `fk_test_docente`; ALTER TABLE `test` ADD CONSTRAINT `fk_test_docente` FOREIGN KEY (`cf_docente`) REFERENCES `utente`(`codice_fiscale`) ON DELETE CASCADE ON UPDATE RESTRICT;
