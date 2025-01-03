@@ -146,7 +146,7 @@ $result = $stmt->get_result();
                             class="btn <?= $row_test['visibilita_tentativi'] ? 'btn-primary' : 'btn-outline-primary' ?>"
                             onclick="toggleSetting('visibilita_tentativi', this)"
                             data-status="<?= $row_test['visibilita_tentativi'] ? '1' : '0' ?>">
-                            <?= $row_test['visibilita_tentativi'] ? 'Nascondi' : 'Rendi Visibile' ?>
+                            <?= $row_test['visibilita_tentativi'] ? 'Nascondi tentativi' : 'Mostra tentativi' ?>
                         </button>
                     </div>
 
@@ -430,11 +430,11 @@ $result = $stmt->get_result();
             const newStatus = currentStatus === "1" ? "0" : "1";
 
             if (newStatus === "1") {
-                button.textContent = setting === "visibilita_tentativi" ? "Nascondi" : "Disabilita Test";
+                button.textContent = setting === "visibilita_tentativi" ? "Nascondi tentativi" : "Disabilita Test";
                 button.classList.remove("btn-outline-primary");
                 button.classList.add("btn-primary");
             } else {
-                button.textContent = setting === "visibilita_tentativi" ? "Rendi Visibile" : "Abilita Test";
+                button.textContent = setting === "visibilita_tentativi" ? "Mostra tentativi" : "Abilita Test";
                 button.classList.remove("btn-primary");
                 button.classList.add("btn-outline-primary");
             }
