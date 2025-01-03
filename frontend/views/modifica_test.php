@@ -33,7 +33,7 @@ if ($result_test->num_rows == 0) {
 $row_test = $result_test->fetch_assoc();
 
 // Domande fetch SQL
-$SQL_query_domande = "SELECT id, testo, tipo
+$SQL_query_domande = "SELECT id, testo, tipo, punti
                       FROM domanda
                       WHERE test_id = ?";
 $stmt_domande = $conn->prepare($SQL_query_domande);
@@ -229,6 +229,13 @@ $result_domande = $stmt_domande->get_result();
                                 </div>';
                         echo "</div>";
                     }
+                    echo '  <div class="d-flex justify-content-end">
+                                <span class="badge bg-secondary m-3">
+                            <input type="text" class="form-control d-inline-block text-center" 
+                                style="width: 60px; padding: 2px; font-size: 0.9rem;" 
+                                value="'.$row_domanda['punti'].'" ' . (($_SESSION['user']['ruolo'] == "STUDENTE") ? "disabled" : "") . ' onchange="aggiornaPunteggio(\'' . $row_domanda['id'] . '\', this.value)">
+                         </span>
+                            </div>';
                     echo "</div>";
                 }
             } else {
@@ -358,6 +365,32 @@ $result_domande = $stmt_domande->get_result();
                 .then(data => {
                     if (!data.success) {
                         alert('Errore durante l\'aggiornamento del titolo.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Errore nella richiesta:', error);
+                    alert('Errore durante la connessione al server.');
+                });
+            toastBody.textContent = 'Salvato.';
+        }
+
+        function aggiornaPunteggio(questionID, punteggio) {
+            toastBody.textContent = 'Salvataggio in corso...';
+            bsToast.show();
+            fetch('../../backend/API/change_test_question_points.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: questionID,
+                        punteggio: punteggio
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.success) {
+                        alert('Errore durante l\'aggiornamento del punteggio.');
                     }
                 })
                 .catch(error => {
