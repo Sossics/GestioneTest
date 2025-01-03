@@ -5,6 +5,17 @@ require("./../../backend/Include/db_connect.php");
 
 $filter = isset($_GET['filter']) ? trim($_GET['filter']) : '';
 
+
+if (isset($_POST["elimina"])) {
+    
+    $SQL_query = "  DELETE FROM utente WHERE utente.codice_fiscale = ?";
+
+    $stmt = $conn->prepare($SQL_query);
+    $stmt->bind_param("s", $_POST["elimina"]);
+    $stmt->execute();
+
+}
+
 $SQL_query = "SELECT 
                 nome, cognome, codice_fiscale
             FROM 
@@ -62,8 +73,10 @@ $result = $stmt->get_result();
             </form>
         </div>
         <table class="table table-bordered table-striped">
+        <form action="studenti.php" method="post">
             <thead class="table-primary">
                 <tr>
+                    <th>Elimina</th>
                     <th>Nome</th>
                     <th>Cognome</th>
                     <th>Codice Fiscale</th>
@@ -74,16 +87,18 @@ $result = $stmt->get_result();
                 if ($result && $result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
+                        echo "<td> <button type=\"submit\" value=\"" . $row['codice_fiscale'] . "\" name=\"elimina\" class=\"btn btn-danger\">X</button></td>";
                         echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
                         echo "<td>" . htmlspecialchars($row['cognome']) . "</td>";
                         echo "<td>" . htmlspecialchars($row['codice_fiscale']) . "</td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='3' class='text-center'>Nessun studente trovato</td></tr>";
+                    echo "<tr><td colspan='4' class='text-center'>Nessun studente trovato</td></tr>";
                 }
                 ?>
             </tbody>
+            </form>
         </table>
     </div>
 

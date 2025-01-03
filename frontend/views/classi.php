@@ -5,6 +5,16 @@ require("./../../backend/Include/db_connect.php");
 
 $filter = isset($_GET['filter']) ? trim($_GET['filter']) : '';
 
+if (isset($_POST["elimina"])) {
+    
+    $SQL_query = "  DELETE FROM classe WHERE classe.id = ?";
+
+    $stmt = $conn->prepare($SQL_query);
+    $stmt->bind_param("i", $_POST["elimina"]);
+    $stmt->execute();
+
+}
+
 $SQL_query = "SELECT 
                 nome, anno_scolastico, id
             FROM 
@@ -62,8 +72,10 @@ $result = $stmt->get_result();
   
         
         <table class="table table-bordered table-striped">
+        <form action="classi.php" method="post">
             <thead class="table-primary">
                 <tr>
+                    <th>Elimina</th>
                     <th>Nome Classe</th>
                     <th>Anno Scolastico</th>
                 </tr>
@@ -73,15 +85,17 @@ $result = $stmt->get_result();
                 if ($result && $result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
+                        echo "<td> <button type=\"submit\" value=\"" . $row['id'] . "\" name=\"elimina\" class=\"btn btn-danger\">X</button></td>";
                         echo "<td> <a href=\" ./visualizza_classe.php?id=".$row['id']."\">" . htmlspecialchars($row['nome']) . "</a></td>";
                         echo "<td>" . htmlspecialchars($row['anno_scolastico']) . "</td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='2' class='text-center'>Nessuna classe trovata</td></tr>";
+                    echo "<tr><td colspan='3' class='text-center'>Nessuna classe trovata</td></tr>";
                 }
                 ?>
             </tbody>
+            </form>
         </table>
     </div>
     
