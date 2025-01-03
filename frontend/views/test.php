@@ -94,7 +94,9 @@ switch($_SESSION['user']['ruolo']){
                             LEFT JOIN 
                                 domanda AS dm 
                             ON 
-                                dm.test_id = t.id";
+                                dm.test_id = t.id 
+                            WHERE 
+                                d.codice_fiscale = ? ";
             
             break;
         case "ADMIN":
@@ -131,17 +133,33 @@ switch($_SESSION['user']['ruolo']){
             
             // echo "Processing: $SQL_query";
             $stmt = $conn->prepare($SQL_query);
-            if ($filter !== '') {
-                $like_filter = '%' . $filter . '%';
-                if (isset($_POST['id'])) {
-                    $stmt->bind_param("isss", $_POST['id'], $like_filter, $like_filter, $like_filter);
-                } else {
-                    $stmt->bind_param("sss", $like_filter, $like_filter, $like_filter);
+            if($_SESSION['user']['ruolo'] == "DOCENTE"){
+                if ($filter !== '') {
+                    $like_filter = '%' . $filter . '%';
+                    if (isset($_POST['id'])) {
+                        $stmt->bind_param("sisss", $_SESSION['user']["codice_fiscale"], $_POST['id'], $like_filter, $like_filter, $like_filter);
+                    } else {
+                        $stmt->bind_param("ssss", $_SESSION['user']["codice_fiscale"], $like_filter, $like_filter, $like_filter);
+                    }
+                } else if (isset($_POST['id'])) {
+                    $stmt->bind_param("si", $_SESSION['user']["codice_fiscale"], $_POST['id']);
+                }else{
+                    $stmt->bind_param("s", $_SESSION['user']["codice_fiscale"]);
                 }
-            } else if (isset($_POST['id'])) {
-                $stmt->bind_param("i", $_POST['id']);
+            }else{
+                if ($filter !== '') {
+                    $like_filter = '%' . $filter . '%';
+                    if (isset($_POST['id'])) {
+                        $stmt->bind_param("isss", $_POST['id'], $like_filter, $like_filter, $like_filter);
+                    } else {
+                        $stmt->bind_param("sss", $like_filter, $like_filter, $like_filter);
+                    }
+                } else if (isset($_POST['id'])) {
+                    $stmt->bind_param("i", $_POST['id']);
+                }
+                // echo "Executing: $SQL_query";
             }
-            // echo "Executing: $SQL_query";
+
             $stmt->execute();
             $result = $stmt->get_result();
 
