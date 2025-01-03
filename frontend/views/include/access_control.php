@@ -26,7 +26,8 @@ function redirectToLogin()
 
 $redirectURLsIfLoggedIN = [
     'STUDENTE' => ['url' => "index.php"],
-    'DOCENTE' => ['url' => "index.php"]
+    'DOCENTE' => ['url' => "index.php"],
+    'ADMIN' => ['url' => "index.php"]
 ];
 
 $availableURLsForRole = [
@@ -47,6 +48,20 @@ $availableURLsForRole = [
         "aggiungi_sessione.php",
         "aggiungi_test.php",
         "aggiungi_utente.php",
+    ],
+    'ADMIN' => [
+        "index.php",
+        "test.php",
+        "profilo.php",
+        "classi.php",
+        "visualizza_classe.php",
+        "sessioni.php",
+        "studenti.php",
+        "aggiungi_classe.php",
+        "aggiungi_sessione.php",
+        "aggiungi_test.php",
+        "aggiungi_utente.php",
+        "docenti.php",
     ]
 
 
@@ -89,6 +104,22 @@ if (!isset($_SESSION['user'])) {
                 exit();
             }
             break;
+        case "ADMIN":
+                if (isset($availableURLsForRole['ADMIN'])) {
+                    if (!isURLAvailableForRole($current_url, $availableURLsForRole['ADMIN'])) {
+                        fwrite($file, "Redirecting to Login, Failed test line: 150 ($current_url NOT AVAILABLE FOR DOCENTE) with ". $_SERVER['REQUEST_URI'] . "\n");
+                        redirectToLogin();
+                        exit();
+                    } else {
+                        fwrite($file, "Access Authorized for ADMIN with  ". $_SERVER['REQUEST_URI'] . "\n");
+                    }
+                } else {
+                    fwrite($file, "Redirecting to Login, Failed test line: 148 ($current_url NOT AVAILABLE FOR ADMIN) with ". $_SERVER['REQUEST_URI'] . "\n");
+                    redirectToLogin();
+                    exit();
+                }
+                break;
+
         default:
             fwrite($file, "Undefined and Unauthorized user tried to access:  ". $_SERVER['REQUEST_URI'] . "\n");
             redirectToLogin();

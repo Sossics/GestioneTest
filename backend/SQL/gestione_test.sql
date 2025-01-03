@@ -416,3 +416,6 @@ ALTER TABLE classe_studente DROP FOREIGN KEY fk_classe_classe; ALTER TABLE class
 ALTER TABLE classe_studente DROP FOREIGN KEY fk_classe_studente;
 ALTER TABLE classe_studente ADD CONSTRAINT fk_classe_studente FOREIGN KEY (cf_studente) REFERENCES utente(codice_fiscale) ON DELETE CASCADE ON UPDATE RESTRICT;
 ALTER TABLE tentativo DROP FOREIGN KEY fk_tent_studente; ALTER TABLE tentativo ADD CONSTRAINT fk_tent_studente FOREIGN KEY (cf_studente) REFERENCES utente(codice_fiscale) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+ALTER TABLE `utente` CHANGE `ruolo` `ruolo` ENUM('STUDENTE','DOCENTE','ADMIN','') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'STUDENTE';
+INSERT INTO utente (codice_fiscale, nome, cognome, login, password, ruolo) VALUES ('ADMADM00A00A000D', 'admin', 'admin', 'admin', 'admin', 'ADMIN');

@@ -21,7 +21,7 @@ $SQL_query = "SELECT
             FROM 
                 utente
             WHERE
-                ruolo = 'STUDENTE'";
+                ruolo = 'DOCENTE'";
 
 if ($filter !== '') {
     $SQL_query .= " AND ( nome LIKE ? OR cognome LIKE ? )";
@@ -59,21 +59,21 @@ $result = $stmt->get_result();
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item active">Studenti</li>
+                    <li class="breadcrumb-item active">Docenti</li>
                 </ol>
             </nav>
         </div>
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2>Lista degli Studenti</h2>
+            <h2>Lista dei Docenti</h2>
             <form method="GET" class="d-flex">
-                <input type="text" name="filter" class="form-control me-2" placeholder="Cerca studente..."
+                <input type="text" name="filter" class="form-control me-2" placeholder="Cerca docente..."
                     value="<?php echo htmlspecialchars($filter); ?>">
                 <button type="submit" class="btn btn-primary me-2">Cerca</button>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuovoStudente">Aggiungi</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuovoDocente">Aggiungi</button>
             </form>
         </div>
         <table class="table table-bordered table-striped">
-        <form action="studenti.php" method="post">
+        <form action="docenti.php" method="post">
             <thead class="table-primary">
                 <tr>
                     <th>Elimina</th>
@@ -94,7 +94,7 @@ $result = $stmt->get_result();
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='4' class='text-center'>Nessun studente trovato</td></tr>";
+                    echo "<tr><td colspan='4' class='text-center'>Nessun docente trovato</td></tr>";
                 }
                 ?>
             </tbody>
@@ -102,12 +102,12 @@ $result = $stmt->get_result();
         </table>
     </div>
 
-    <div class="modal fade" id="nuovoStudente" tabindex="-1" aria-labelledby="titoloModal" aria-hidden="true">
+    <div class="modal fade" id="nuovoDocente" tabindex="-1" aria-labelledby="titoloModal" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="studenti.php" method="post">
+        <form action="docenti.php" method="post">
         <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="titoloModal">Aggiunta Studente</h1>
+            <h1 class="modal-title fs-5" id="titoloModal">Aggiunta Docente</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -128,7 +128,7 @@ $result = $stmt->get_result();
             <label for="password_studente" class="col-form-label">Password: </label>
             <input type="text" class="form-control" id="password_studente" name="password_studente" value="password" required>
             
-            <input type="hidden" name="ruolo_studente" id="ruolo_studente" value="STUDENTE">
+            <input type="hidden" name="ruolo_studente" id="ruolo_studente" value="DOCENTE">
 
         </div>
 

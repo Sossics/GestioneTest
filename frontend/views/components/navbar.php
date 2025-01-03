@@ -89,6 +89,28 @@
                                 <li class="nav-item">
                                     <a class="nav-link <?php if ($pagina == "profilo.php") echo 'active'; ?>" href="profilo.php">Profilo</a>
                                 </li>
+                            <?php elseif ($_SESSION['user']['ruolo'] === 'ADMIN'): ?>
+                                <li class="nav-item">
+                                    <a class="nav-link <?php if ($pagina == "index.php") echo 'active'; ?>" href="index.php">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link <?php if ($pagina == "classi.php") echo 'active'; ?>" href="classi.php">Classi</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link <?php if ($pagina == "studenti.php") echo 'active'; ?>" href="studenti.php">Studenti</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link <?php if ($pagina == "docenti.php") echo 'active'; ?>" href="docenti.php">Docenti</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link <?php if ($pagina == "sessioni.php") echo 'active'; ?>" href="sessioni.php">Sessioni</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link <?php if ($pagina == "test.php") echo 'active'; ?>" href="test.php">Test</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link <?php if ($pagina == "profilo.php") echo 'active'; ?>" href="profilo.php">Profilo</a>
+                                </li>
                             <?php endif; ?>
                             <li class="nav-item">
                                 <a class="nav-link logout-btn" href="logout.php">Logout</a>

@@ -97,6 +97,25 @@ switch($_SESSION['user']['ruolo']){
                                 dm.test_id = t.id";
             
             break;
+        case "ADMIN":
+                $SQL_query = "SELECT
+                                    t.id AS test_id,
+                                    t.titolo AS test_titolo,
+                                    d.nome AS nome_docente,
+                                    d.cognome AS cognome_docente,
+                                    COUNT(dm.id) AS numero_domande
+                                FROM 
+                                    test AS t
+                                JOIN 
+                                    utente AS d
+                                ON 
+                                    d.codice_fiscale=t.cf_docente
+                                LEFT JOIN 
+                                    domanda AS dm 
+                                ON 
+                                    dm.test_id = t.id";
+                
+                break;
         }
 
             if (isset($_POST['id'])) {
