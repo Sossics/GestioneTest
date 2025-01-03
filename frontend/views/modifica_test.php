@@ -236,7 +236,7 @@ $result_domande = $stmt_domande->get_result();
             }
             echo "  <div class='m-3 d-flex justify-content-center question-adder'>
                         <button class='btn btn-success rounded-pill d-flex align-items-center justify-content-center'
-                                style='width: 6vh; height: 4vh;' onclick='aggiungiDomanda(\"". $test_id . "\", this);'>
+                                style='width: 6vh; height: 4vh;' onclick='aggiungiDomanda(event, \"". $test_id . "\", this);'>
                             <span style='color: white; font-size: 24px;'>+</span>
                         </button>   
                     </div>";
@@ -263,6 +263,7 @@ $result_domande = $stmt_domande->get_result();
         const toastElement = document.getElementById('save-toast');
         const toastBody = toastElement.querySelector('.toast-body');
         const bsToast = new bootstrap.Toast(toastElement);
+        const form = document.getElementById('test-form');
 
         function aggiornaTitolo(testID, titolo) {
             toastBody.textContent = 'Salvataggio in corso...';
@@ -498,9 +499,9 @@ $result_domande = $stmt_domande->get_result();
             toastBody.textContent = 'Salvato.';
         }
 
-        function aggiungiDomanda(testID, HTML_ELEM_CALLER) {
+        function aggiungiDomanda(e, testID, HTML_ELEM_CALLER) {
 
-            
+            e.preventDefault();
 
             fetch('../../backend/API/new_question.php', {
                     method: 'POST',
@@ -521,9 +522,11 @@ $result_domande = $stmt_domande->get_result();
                         newQuestion.className = 'question-container mb-3';
                         newQuestion.id = `question-container_${data.newQuestionID}`;
 
-                        newQuestion.innerHTML = ``;
+                        newQuestion.innerHTML = data.HTML_CODE;
 
-                        form.insertBefore(newQuestion, form.firstChild);
+                        const questionAdder = document.querySelector('.question-adder');
+
+                        questionAdder.parentNode.insertBefore(newQuestion, questionAdder);
                     }
                 })
                 .catch(error => {

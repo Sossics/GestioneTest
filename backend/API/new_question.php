@@ -24,12 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     fwrite($f, "Adding new question to Test with ID: $test_id\n");
 
-    $SQL_QUERY = "INSERT INTO domanda(testo, tipo, test_id, punti) VALUES('Inserisci la domanda...', 'APERTA', '0.0')";
+    $SQL_QUERY = "INSERT INTO domanda(testo, tipo, test_id, punti) VALUES('Inserisci la domanda...', 'APERTA', ?, '0.0')";
     $stmt = $conn->prepare($SQL_QUERY);
+    $stmt->bind_param('i', $test_id);
     if($stmt->execute()){
         $last_id = $conn->insert_id;
-        $res = `
-            <div class='question-container' id='{$last_id}_question-container'>  
+        $res = <<<HTML
                 <div class="d-flex justify-content-between align-items-center">
                     <input type="text" class="form-control fs-4 border-0 border-bottom text-left" id="titolo"
                         name="titolo" 
@@ -49,10 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label for='answer_{$last_id}'>Risposta:</label>
                     <textarea id='answer_{$last_id}' class='form-control' rows='4' placeholder='Scrivi la tua risposta' disabled></textarea>
                 </div>
-            </div>`;
+            HTML;
     }
 
-    echo json_encode(['success' => true, 'error' => '', 'HTML_CODE' => $res]);
+    echo json_encode(['success' => true, 'error' => '', 'HTML_CODE' => $res, 'newQuestionID' => $last_id]);
     
 
 } else {
