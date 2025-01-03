@@ -16,7 +16,7 @@ require("./../../backend/Include/db_connect.php");
 $filter = isset($_GET['filter']) ? trim($_GET['filter']) : '';
 
 if (isset($_POST["elimina"])) {
-
+    
     $SQL_query = "  DELETE FROM tentativo
                     WHERE sessione_id = ? ";
 

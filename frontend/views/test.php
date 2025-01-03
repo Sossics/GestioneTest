@@ -434,6 +434,7 @@ switch($_SESSION['user']['ruolo']){
                             echo "<td>" . htmlspecialchars($row_attempt['inviato_il']) . "</td>";
                             echo "<td>" . "N/D" . "</td>";
                             echo "<td>" . "N/D" . "</td>";
+                    echo "<td>" . $row_attempt['attempt_id'] . "</td>";
                             echo "<td>
                                     <input type='hidden' name='attempt_id' value='" . encryptId($row_attempt['attempt_id']) . "'>
                                     " . (($visibile) ? "<button class='btn btn-link show-answers' type='submit'>

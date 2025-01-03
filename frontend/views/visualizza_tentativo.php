@@ -19,8 +19,11 @@ function decryptId($encrypted) {
 
 
 $attempt_id_encryted = $_POST['attempt_id'];
+
+
 $attempt_id = decryptId($attempt_id_encryted);
 
+echo "<n1>".$attempt_id."</h1>";
 // Test fetch
 $SQL_query_test = "SELECT t.titolo, d.nome AS nome_docente, d.cognome AS cognome_docente, t.id AS test_id
                     FROM
