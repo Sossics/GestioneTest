@@ -63,15 +63,28 @@ $SQL_query = "SELECT
             ON 
                 c.id=s.classe_id";
 
+
+if($_SESSION['user']['ruolo'] == "DOCENTE"){
+    $SQL_query .= " WHERE s.cf_docente = ?" ;
+}
+
 if ($filter !== '') {
-    $SQL_query .= " AND ( nome LIKE ? OR cognome LIKE ? )";
+    $SQL_query .= " AND ( t.titolo LIKE ? OR c.nome LIKE ? )";
 }
 
 $stmt = $conn->prepare($SQL_query);
 if ($filter !== '') {
     $like_filter = '%' . $filter . '%';
-    $stmt->bind_param("ss", $like_filter, $like_filter);
 }
+
+if($_SESSION['user']['ruolo'] == "DOCENTE" && $filter !== ''){
+    $stmt->bind_param("sss", $_SESSION['user']["codice_fiscale"], $like_filter, $like_filter);
+}else if($_SESSION['user']['ruolo'] != "DOCENTE" && $filter !== ''){
+    $stmt->bind_param("ss", $like_filter, $like_filter);
+}else if($_SESSION['user']['ruolo'] == "DOCENTE" && $filter == ''){
+    $stmt->bind_param("s", $_SESSION['user']["codice_fiscale"]);
+}
+
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
