@@ -409,3 +409,9 @@ ALTER TABLE `risposta` ADD `punteggio` DOUBLE NOT NULL DEFAULT '0.0' AFTER `risp
 ALTER TABLE `risposta` CHANGE `risposta_aperta` `risposta_aperta` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL, CHANGE `risposta_multipla_id` `risposta_multipla_id` INT(11) NULL;
 ALTER TABLE `sessione` ADD `max_tentativi_ammessi` INT NOT NULL DEFAULT '1' AFTER `visibilita_tentativi`;
 ALTER TABLE `tentativo` ADD COLUMN `punteggio` DOUBLE DEFAULT 0.0;
+ALTER TABLE sessione DROP FOREIGN KEY fk_sessione_test; ALTER TABLE sessione ADD CONSTRAINT fk_sessione_test FOREIGN KEY (test_id) REFERENCES test(id) ON DELETE CASCADE ON UPDATE RESTRICT;
+ALTER TABLE tentativo DROP FOREIGN KEY fk_tent_sessione; ALTER TABLE tentativo ADD CONSTRAINT fk_tent_sessione FOREIGN KEY (sessione_id) REFERENCES sessione(id) ON DELETE CASCADE ON UPDATE RESTRICT;
+ALTER TABLE risposta DROP FOREIGN KEY fk_risposta_tentativo; ALTER TABLE risposta ADD CONSTRAINT fk_risposta_tentativo FOREIGN KEY (tentativo_id) REFERENCES tentativo(id) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE classe_studente DROP FOREIGN KEY fk_classe_classe; ALTER TABLE classe_studente ADD CONSTRAINT fk_classe_classe FOREIGN KEY (id_classe) REFERENCES classe(id) ON DELETE CASCADE ON UPDATE RESTRICT; ALTER TABLE classe_studente DROP FOREIGN KEY fk_classe_studente;
+ALTER TABLE classe_studente ADD CONSTRAINT fk_classe_studente FOREIGN KEY (cf_studente) REFERENCES utente(codice_fiscale) ON DELETE CASCADE ON UPDATE RESTRICT;
+ALTER TABLE tentativo DROP FOREIGN KEY fk_tent_studente; ALTER TABLE tentativo ADD CONSTRAINT fk_tent_studente FOREIGN KEY (cf_studente) REFERENCES utente(codice_fiscale) ON DELETE CASCADE ON UPDATE RESTRICT;
