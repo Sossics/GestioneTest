@@ -13,6 +13,7 @@ header('Content-Type: application/json');
 $f = fopen($logDir . "/log.txt", "a+");
 
 header('Content-Type: application/json');
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include './../include/db_connect.php';
@@ -29,6 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param('i', $test_id);
     if($stmt->execute()){
         $last_id = $conn->insert_id;
+        $disabled = (($_SESSION['user']['ruolo'] == "STUDENTE") ? "disabled" : "");
+        $fn = 'onchange="aggiornaPunteggio(\'' .  $last_id . '\', this.value)';
         $res = <<<HTML
                 <div class="d-flex justify-content-between align-items-center">
                     <input type="text" class="form-control fs-4 border-0 border-bottom text-left" id="titolo"
@@ -50,7 +53,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label for='answer_{$last_id}'>Risposta:</label>
                     <textarea id='answer_{$last_id}' class='form-control' rows='4' placeholder='Scrivi la tua risposta' disabled></textarea>
                 </div>
+                <div class="d-flex justify-content-end">
+                    <span class="badge bg-secondary m-3">
+                        <input type="number" min="0" class="form-control d-inline-block text-center" 
+                            style="width: 60px; padding: 2px; font-size: 0.9rem;" 
+                            value="0" onchange="aggiornaPunteggio('{$last_id}', this.value)" <?=$disabled?>
+                     </span>
+                </div>
             HTML;
+
+            
     }
 
     echo json_encode(['success' => true, 'error' => '', 'HTML_CODE' => $res, 'newQuestionID' => $last_id]);
