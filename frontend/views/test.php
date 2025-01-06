@@ -434,7 +434,31 @@ switch($_SESSION['user']['ruolo']){
                 $SQL_query_attempt_details = "SELECT 
                                                     s.id AS session_id,
 													t.data_tentativo AS inviato_il,
-                                                    t.id AS attempt_id
+                                                    t.id AS attempt_id,
+                                                    (
+                                                        SELECT 
+                                                            SUM(d.punti)
+                                                        FROM
+                                                            test AS td
+                                                        JOIN
+                                                            domanda AS d
+                                                        ON
+                                                            td.id=d.test_id
+                                                        WHERE
+                                                            td.id=?
+                                                    ) AS punteggio_totale,
+                                                    (
+                                                        SELECT 
+                                                            SUM(ris.punteggio)
+                                                        FROM 
+                                                            tentativo as tent
+                                                        JOIN
+                                                            risposta AS ris
+                                                        ON
+                                                            tent.id=ris.tentativo_id
+                                                        WHERE
+                                                            tent.id=t.id
+                                                    ) AS punteggio_finale
                                                 FROM 
                                                     sessione AS s
                                                 LEFT JOIN 
@@ -451,11 +475,11 @@ switch($_SESSION['user']['ruolo']){
                                                     stu.codice_fiscale = ?";
     
                 $stmt_attempt_details = $conn->prepare($SQL_query_attempt_details);
-                $stmt_attempt_details->bind_param("is", $_POST['id'], $_SESSION['user']['codice_fiscale']);
+                $stmt_attempt_details->bind_param("iis", $_POST['id'],$_POST['id'], $_SESSION['user']['codice_fiscale']);
                 $stmt_attempt_details->execute();
                 $result_attempt_details = $stmt_attempt_details->get_result();
                 
-                echo "<form action='visualizza_tentativo.php' method='POST'><table class='table table-bordered w-50 mt-4'>";
+                echo "<table class='table table-bordered w-50 mt-4'>";
                 echo "<thead>
                         <tr>
                             <th colspan='4' class='bg-light'>Tentativi</th>
@@ -480,14 +504,16 @@ switch($_SESSION['user']['ruolo']){
                             // var_export($row_attempt);
                             echo "<tr class='text-center'>";
                             echo "<td>" . htmlspecialchars($row_attempt['inviato_il']) . "</td>";
-                            echo "<td>" . "N/D" . "</td>";
-                            echo "<td>" . "N/D" . "</td>";
+                            echo "<td>" . ($visibile ? ( ($row_attempt['punteggio_finale'] ?? "...") . '/' . ($row_attempt['punteggio_totale'])) : "Non Visibile") . "</td>";
+                            echo "<td>" . ($visibile ? ((is_null($row_attempt['punteggio_finale']) ? "..." : number_format((float)($row_attempt['punteggio_finale'] / $row_attempt['punteggio_totale'])*10, 2, '.', '')). ' / 10') : "Non Visibile") . "</td>";
                    // echo "<td>" . $row_attempt['attempt_id'] . "</td>";
                             echo "<td>
+                                    <form action='visualizza_tentativo.php' method='POST'>
                                     <input type='hidden' name='attempt_id' value='" . encryptId($row_attempt['attempt_id']) . "'>
                                     " . (($visibile) ? "<button class='btn btn-link show-answers' type='submit'>
                                         Visualizza
                                     </button>" : "Non Visibile") . "
+                                    </form>
                                  </td>";
                             echo "</tr>";
                         } while ($row_attempt = $result_attempt_details->fetch_assoc());
