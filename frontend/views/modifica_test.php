@@ -122,14 +122,14 @@ $result_domande = $stmt_domande->get_result();
 
         <div class="text-center">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="input-group w-75">
+                <div class="input-group">
                     <input type="text" class="form-control fs-1 border-0 border-bottom text-center" id="titolo"
                         name="titolo" value="<?php echo htmlspecialchars($row_test['titolo']); ?>"
                         style="background: transparent; outline: none;"
                         onblur="aggiornaTitolo('<?php echo $test_id; ?>', this.value)">
                 </div>
 
-                <div class="d-flex align-items-center w-25 justify-content-end">
+                <!-- <div class="d-flex align-items-center w-25 justify-content-end">
                     <select id="sort-questions" class="form-select me-3"
                         onchange="aggiornaOrdinamento('<?php echo $test_id; ?>', this.value)">
                         <option value="DEFAULT" selected>Predefinito</option>
@@ -137,12 +137,12 @@ $result_domande = $stmt_domande->get_result();
                         <option value="POINT">Per Punteggio</option>
                         <option value="TYPE">Per Tipologia</option>
                     </select>
-                    <!-- <button class="btn btn-success" onclick="aggiungiDomanda('<?php echo $test_id; ?>')">Aggiungi
-                        Domanda</button> -->
-                </div>
+                     <button class="btn btn-success" onclick="aggiungiDomanda('<?php echo $test_id; ?>')">Aggiungi
+                        Domanda</button>
+                </div> -->
             </div>
 
-            <p class="text-center w-75">
+            <p class="text-center">
                 Creato da:
                 <?php echo ucfirst(strtolower($row_test['nome_docente'])) . " " . ucfirst(strtolower($row_test['cognome_docente'])); ?>
             </p>
@@ -237,7 +237,7 @@ $result_domande = $stmt_domande->get_result();
                          </span>
                             </div>';
                     echo "</div>";
-                }
+                }  
             } else {
                 echo "<p>Non ci sono domande per questo test.</p>";
             }
