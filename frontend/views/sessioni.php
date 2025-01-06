@@ -196,7 +196,7 @@ $result = $stmt->get_result();
 
                     <div class="mb-3">
                         <label for="numero-tentativi" class="form-label">Numero massimo di tentativi ammessi:</label>
-                        <select class="form-select" id="numero-tentativi" name="numero_tentativi">
+                        <select class="form-select" id="numero-tentativi" name="numero_tentativi" onchange="submitConfig()">
                             <option value="0" <?= $row_test['max_tentativi_ammessi'] == 0 ? 'selected' : '' ?>>Non definito
                                 (tentativi infiniti)</option>
                             <?php for ($i = 1; $i <= 20; $i++): ?>
@@ -207,7 +207,7 @@ $result = $stmt->get_result();
                         </select>
                     </div>
 
-                    <button type="button" class="btn btn-primary" onclick="submitConfig()">Salva impostazioni</button>
+                   <br><br>
             </form>
 
             <h2 class="text-center">Tentativi degli studenti</h2>
@@ -481,6 +481,7 @@ $result = $stmt->get_result();
             }
 
             button.setAttribute("data-status", newStatus);
+            submitConfig();
         }
 
         function submitConfig() {
