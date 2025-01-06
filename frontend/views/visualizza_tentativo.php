@@ -133,6 +133,11 @@ foreach ($risposte as $risposta) {
         .form-control {
             font-size: 1rem;
         }
+
+        .non-cliccabile {
+            pointer-events: none;
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -170,7 +175,7 @@ foreach ($risposte as $risposta) {
                     // print_r($row_domanda);
 
                     $current_answer = isset($risposte_assoc[$row_domanda['id']]) ? $risposte_assoc[$row_domanda['id']] : null;
-                    $punteggio_tot = 0;
+                    $punteggio_totale = 0;
 
                     if ($row_domanda['tipo'] == 'MULTIPLA' && is_array($current_answer)) {
                         foreach ($current_answer as $risposta_multipla_id) {
@@ -221,8 +226,8 @@ foreach ($risposte as $risposta) {
                             $is_checked = (is_array($current_answer) && in_array($row_opzione['id'], $current_answer)) ? "checked" : "";
                             // print_r($row_opzione);
                             echo "<div class='form-check'>
-                                    <input class='form-check-input' type='radio' name='question_{$row_domanda['id']}' id='option_{$row_opzione['id']}' {$is_checked}>
-                                    <label class='form-check-label' for='option_{$row_opzione['id']}'>
+                                    <input class='form-check-input non-cliccabile' type='checkbox' name='question_{$row_domanda['id']}' id='option_{$row_opzione['id']}' {$is_checked}>
+                                    <label class='form-check-label non-cliccabile' for='option_{$row_opzione['id']}'>
                                         " . $row_opzione['testo_opzione'] . "
                                     </label>
                                   </div>";
