@@ -32,7 +32,7 @@ function encryptId($id) {
     return base64_encode($encryptedId . '::' . base64_encode($iv)); 
 }
 
-var_export($_POST);
+//var_export($_POST);
 
 $filter = isset($_GET['filter']) ? trim($_GET['filter']) : '';
 
@@ -213,7 +213,7 @@ $result = $stmt->get_result();
             <h2 class="text-center">Tentativi degli studenti</h2>
             
             <?php
-                echo $_POST['visualizza'];
+                //echo $_POST['visualizza'];
                  $SQL_query_attempts = "SELECT
                                             t.*, stu.nome AS s_nome, stu.cognome AS s_cognome,
                                             (
