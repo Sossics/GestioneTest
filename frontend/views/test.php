@@ -591,6 +591,7 @@ switch($_SESSION['user']['ruolo']){
                     echo "<p class='text-center'>Nessun test disponibile</p>";
                 } else {
                     echo "<tr><td colspan='5' class='text-center'>Nessun test trovato</td></tr>";
+                    echo '<div class="d-flex justify-content-center"><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuovoTest">Crea nuovo test</button></div>';
                 }
             }
         }
