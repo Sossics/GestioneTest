@@ -13,7 +13,7 @@ header('Content-Type: application/json');
 $f = fopen($logDir . "/log.txt", "a+");
 
 header('Content-Type: application/json');
-
+session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include './../include/db_connect.php';
     fwrite($f, "----------------NEW OPERATION----------------\n");
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     fwrite($f, "Rendering HTML for question with ID: $question_id\n");
 
     // Domande fetch SQL
-    $SQL_query_domande = "SELECT id, testo, tipo
+    $SQL_query_domande = "SELECT id, testo, tipo, punti
                         FROM domanda
                         WHERE id = ?";
     $stmt_domande = $conn->prepare($SQL_query_domande);
@@ -59,6 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for='answer_{$row_domanda['id']}'>Risposta:</label>
                 <textarea id='answer_{$row_domanda['id']}' class='form-control' rows='4' placeholder='Scrivi la tua risposta' disabled></textarea>
                 </div>";
+            $res .= '  <div class="d-flex justify-content-end">
+                        <span class="badge bg-secondary m-3">
+                    <input type="number" class="form-control d-inline-block text-center" 
+                        style="width: 60px; padding: 2px; font-size: 0.9rem;" 
+                        value="'.$row_domanda['punti'].'" ' . (($_SESSION['user']['ruolo'] == "STUDENTE") ? "disabled" : "") . ' onchange="aggiornaPunteggio(\'' . $row_domanda['id'] . '\', this.value)">
+                    </span>
+                    </div>';
         }
 
         // tipo "SCELTA_MULTIPLA"
@@ -90,6 +97,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </button>
                     </div>
                 </div>';
+            $res .= '  <div class="d-flex justify-content-end">
+                            <span class="badge bg-secondary m-3">
+                        <input type="number" min="0" class="form-control d-inline-block text-center" 
+                            style="width: 60px; padding: 2px; font-size: 0.9rem;" 
+                            value="'.$row_domanda['punti'].'" ' . (($_SESSION['user']['ruolo'] == "STUDENTE") ? "disabled" : "") . ' onchange="aggiornaPunteggio(\'' . $row_domanda['id'] . '\', this.value)">
+                        </span>
+                        </div>';
             $res .= "</div>";
         }
 
