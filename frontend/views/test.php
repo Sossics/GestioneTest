@@ -392,7 +392,7 @@ switch($_SESSION['user']['ruolo']){
                                     while ($row_opzione = $result_opzioni->fetch_assoc()) {
                                         // print_r($row_opzione);
                                         echo "<div class='form-check'>
-                                                <input class='form-check-input' type='checkbox' name='question_{$row_domanda['id']}_{$row_opzione['id']}' id='option_{$row_opzione['id']}'>
+                                                <input class='form-check-input' type='radio' name='question_{$row_domanda['id']}_{$row_opzione['id']}' id='option_{$row_opzione['id']}'>
                                                 <label class='form-check-label' for='option_{$row_opzione['id']}'>
                                                     " . $row_opzione['testo_opzione'] . "
                                                 </label>

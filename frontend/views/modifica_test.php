@@ -2,8 +2,6 @@
 session_start();
 require("./../../backend/Include/db_connect.php");
 
-$punteggio_totale = 0;
-
 // ID
 $test_id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
@@ -131,8 +129,7 @@ $result_domande = $stmt_domande->get_result();
                         onblur="aggiornaTitolo('<?php echo $test_id; ?>', this.value)">
                 </div>
 
-                <div class=" w-25 justify-content-end">
-                    Ordina per:
+                <div class="d-flex align-items-center w-25 justify-content-end">
                     <select id="sort-questions" class="form-select me-3"
                         onchange="aggiornaOrdinamento('<?php echo $test_id; ?>', this.value)">
                         <option value="DEFAULT" selected>Predefinito</option>
@@ -143,12 +140,7 @@ $result_domande = $stmt_domande->get_result();
                     <!-- <button class="btn btn-success" onclick="aggiungiDomanda('<?php echo $test_id; ?>')">Aggiungi
                         Domanda</button> -->
                 </div>
-                <div class="w-25">
-                    Punti totali:
-                    <h4 id="somma_tot"></h4>
-                </div>
             </div>
-
 
             <p class="text-center w-75">
                 Creato da:
@@ -239,13 +231,12 @@ $result_domande = $stmt_domande->get_result();
                     }
                     echo '  <div class="d-flex justify-content-end">
                                 <span class="badge bg-secondary m-3">
-                            <input type="number" class="form-control d-inline-block text-center" 
+                            <input type="text" class="form-control d-inline-block text-center" 
                                 style="width: 60px; padding: 2px; font-size: 0.9rem;" 
-                                value="'.$row_domanda['punti'].'" ' . (($_SESSION['user']['ruolo'] == "STUDENTE") ? "disabled" : "") . 'min=0 onchange="aggiornaPunteggio(\'' . $row_domanda['id'] . '\', this.value)">
+                                value="'.$row_domanda['punti'].'" ' . (($_SESSION['user']['ruolo'] == "STUDENTE") ? "disabled" : "") . ' onchange="aggiornaPunteggio(\'' . $row_domanda['id'] . '\', this.value)">
                          </span>
                             </div>';
                     echo "</div>";
-                    $punteggio_totale += $row_domanda['punti'];
                 }
             } else {
                 echo "<p>Non ci sono domande per questo test.</p>";
@@ -354,8 +345,7 @@ $result_domande = $stmt_domande->get_result();
                     console.error('Errore nella richiesta:', error);
                     alert('Errore durante la connessione al server.');
                 });
-                toastBody.textContent = 'Salvato.';
-                location.reload();
+            toastBody.textContent = 'Salvato.';
         }
 
         function aggiornaDomanda(questionID, domanda) {
@@ -400,7 +390,7 @@ $result_domande = $stmt_domande->get_result();
                 .then(response => response.json())
                 .then(data => {
                     if (!data.success) {
-                        //alert('Errore durante l\'aggiornamento del punteggio.');
+                        alert('Errore durante l\'aggiornamento del punteggio.');
                     }
                 })
                 .catch(error => {
@@ -408,7 +398,6 @@ $result_domande = $stmt_domande->get_result();
                     alert('Errore durante la connessione al server.');
                 });
             toastBody.textContent = 'Salvato.';
-            location.reload();
         }
 
         function aggiornaOpzione(optionID, opzione) {
@@ -577,8 +566,6 @@ $result_domande = $stmt_domande->get_result();
                     console.error('Errore nella richiesta:', error);
                     alert('Errore durante la connessione al server.');
                 });
-
-                location.reload();
         }
 
         function eliminaDomanda(e, questionID, HTML_ELEM_CALLER) {
@@ -608,20 +595,7 @@ $result_domande = $stmt_domande->get_result();
                     console.error('Errore nella richiesta:', error);
                     alert('Errore durante la connessione al server.');
                 });
-                location.reload();
         }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            aggiornaTotale();
-        });
-
-        function aggiornaTotale() {
-           const punti = document.getElementById("somma_tot");
-        
-            punti.innerHTML = <?php echo $punteggio_totale;?> ;
-        }
-
-
     </script>
 
 </body>
