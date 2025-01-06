@@ -23,7 +23,7 @@ $attempt_id_encryted = $_POST['attempt_id'];
 
 $attempt_id = decryptId($attempt_id_encryted);
 
-echo "<n1>".$attempt_id."</h1>";
+// echo "<n1>".$attempt_id."</h1>";
 // Test fetch
 $SQL_query_test = "SELECT t.titolo, d.nome AS nome_docente, d.cognome AS cognome_docente, t.id AS test_id
                     FROM
@@ -56,7 +56,7 @@ $row_test = $result_test->fetch_assoc();
 $test_id = $row_test['test_id'];
 
 // Domande fetch SQL
-$SQL_query_domande = "SELECT id, testo, tipo
+$SQL_query_domande = "SELECT id, testo, tipo, punti
                       FROM domanda
                       WHERE test_id = ?";
 $stmt_domande = $conn->prepare($SQL_query_domande);
@@ -74,7 +74,7 @@ $stmt_risposte->execute();
 $result_risposte = $stmt_risposte->get_result();
 $risposte = $result_risposte->fetch_all(MYSQLI_ASSOC);
 
-var_export($risposte);
+// var_export($risposte);
 
 $risposte_assoc = [];
 foreach ($risposte as $risposta) {
@@ -188,7 +188,7 @@ foreach ($risposte as $risposta) {
                     }
             
                     if ($row_domanda['tipo'] == 'APERTA') {
-                        $punteggio_totale = 0;
+                        $punteggio_totale = $risposta['punteggio'];
                     }
 
                     echo "<div class='question-container'>";
@@ -197,9 +197,9 @@ foreach ($risposte as $risposta) {
                     echo "<p class='question-title d-flex justify-content-between align-items-center'>";
                     echo htmlspecialchars($row_domanda['testo']);
                     echo "<span class='badge bg-secondary'>
-                            <input type='text' class='form-control d-inline-block text-center' 
+                            <input type='number' min='0' max='".$row_domanda['punti']."' class='form-control d-inline-block text-center' 
                                 style='width: 60px; padding: 2px; font-size: 0.9rem;'
-                                value='{$punteggio_totale}' " . (($_SESSION['user']['ruolo'] == "STUDENTE") ? "disabled" : "onchange=\"aggiornaPunteggio('" .  $attempt_id . "', '" . $row_domanda['id'] . "', this.value)\"") . ">
+                                value='{$punteggio_totale}' " . (($_SESSION['user']['ruolo'] == "STUDENTE" || $row_domanda['tipo'] == 'MULTIPLA') ? "disabled" : "onchange=\"aggiornaPunteggio('" .  $attempt_id . "', '" . $row_domanda['id'] . "', this.value)\"") . ">
                          </span>";    
                     echo "</p>";
 
