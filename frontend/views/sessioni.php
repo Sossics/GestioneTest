@@ -213,11 +213,39 @@ $result = $stmt->get_result();
             <h2 class="text-center">Tentativi degli studenti</h2>
             
             <?php
-            
+                echo $_POST['visualizza'];
                  $SQL_query_attempts = "SELECT
-                                            t.*, stu.nome AS s_nome, stu.cognome AS s_cognome
+                                            t.*, stu.nome AS s_nome, stu.cognome AS s_cognome,
+                                            (
+                                                SELECT 
+                                                    SUM(d.punti)
+                                                FROM
+                                                    test AS td
+                                                JOIN
+                                                    domanda AS d
+                                                ON
+                                                    td.id=d.test_id
+                                                WHERE
+                                                    td.id=test.id
+                                            ) AS punteggio_totale,
+                                            (
+                                                SELECT 
+                                                    SUM(ris.punteggio)
+                                                FROM 
+                                                    tentativo as tent
+                                                JOIN
+                                                    risposta AS ris
+                                                ON
+                                                    tent.id=ris.tentativo_id
+                                                WHERE
+                                                    tent.id=t.id
+                                            ) AS punteggio_finale
                                         FROM
                                             sessione AS s
+                                        JOIN
+                                            test AS test
+                                        ON
+                                            s.test_id=test.id
                                         JOIN
                                             tentativo AS t
                                         ON
@@ -236,42 +264,46 @@ $result = $stmt->get_result();
                 $stmt_attempts->execute();
                 $result_attempts = $stmt_attempts->get_result();
             ?>
-            <form action="visualizza_tentativo.php" method="post">
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Nome e Cognome</th>
                             <th>Inviato il</th>
-                            <th>Punteggio Finale</th>
+                            <th>Punteggio Totale</th>
+                            <th>Voto Finale</th>
                             <th>Azioni</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <?php $_SESSION['recently_visualized_session'] = $_POST['visualizza']?>
-                    <?php foreach ($result_attempts as $key => $row): ?>
-                        <tr>
-                            <td>
+                        <?php $_SESSION['recently_visualized_session'] = $_POST['visualizza']?>
+                        <?php foreach ($result_attempts as $key => $row): ?>
+                            <tr>
+                                <td>
                                 <div><?= $row['s_nome']." ".$row['s_cognome'] ?></div>
                             </td>
                             <td>
                                 <div><?= $row['data_tentativo'] ?></div>
                             </td>
                             <td>
-                                <div><?= $row['punteggio'] ?></div>
+                                <div><?= $row['punteggio_finale'] ?? "..."?> / <?= $row['punteggio_totale'] ?></div>
                             </td>
                             <td>
+                                <div><?= (is_null($row['punteggio_finale']) ? "..." : number_format((float)($row['punteggio_finale'] / $row['punteggio_totale'])*10, 2, '.', '')) ?> / 10</div>
+                            </td>
+                            <td>
+                                <form action="visualizza_tentativo.php" method="post">
                                 <div>
-                                    <input type="hidden" name="attempt_id" value="<?= encryptId($row['id']); ?>">
+                                    <input type="hidden" name="attempt_id" value="<?= encryptId($row['id']) ?>">
                                     <button class='btn btn-link show-answers' type='submit'>
                                         Visualizza
                                     </button>
                                 </div>
+                            </form>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
                 </table>
-            </form>
         </div>
 
         <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-container"></div>
