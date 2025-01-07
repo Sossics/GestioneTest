@@ -263,6 +263,7 @@ $result = $stmt->get_result();
                 $stmt_attempts->bind_param("i", $_POST['visualizza']);             
                 $stmt_attempts->execute();
                 $result_attempts = $stmt_attempts->get_result();
+
             ?>
                 <table class="table table-bordered table-striped">
                     <thead>
@@ -276,7 +277,13 @@ $result = $stmt->get_result();
                     </thead>
                     <tbody>
                         <?php $_SESSION['recently_visualized_session'] = $_POST['visualizza']?>
-                        <?php foreach ($result_attempts as $key => $row): ?>
+                        <?php foreach ($result_attempts as $key => $row): 
+                            
+                            if ($row['punteggio_finale']<0) {
+                                $row['punteggio_finale']=0;
+                            }
+                            
+                            ?>
                             <tr>
                                 <td>
                                 <div><?= $row['s_nome']." ".$row['s_cognome'] ?></div>
