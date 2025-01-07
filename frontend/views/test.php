@@ -498,9 +498,14 @@ switch($_SESSION['user']['ruolo']){
     
                 if ($result_attempt_details->num_rows > 0) {
                     $row_attempt = $result_attempt_details->fetch_assoc();
-                
+                    
+
+
                     if ($num_attempts > 0) {
                         do {
+                            if ($row_attempt['punteggio_finale']< 0) {
+                                $row_attempt['punteggio_finale']=0;
+                            }
                             // var_export($row_attempt);
                             echo "<tr class='text-center'>";
                             echo "<td>" . htmlspecialchars($row_attempt['inviato_il']) . "</td>";
