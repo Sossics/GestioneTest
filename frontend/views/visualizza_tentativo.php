@@ -186,6 +186,10 @@ foreach ($risposte as $risposta) {
                             }
                         }
                     }
+
+                    if($punteggio_totale<0){
+                        $punteggio_totale=0;
+                    }
             
                     if ($row_domanda['tipo'] == 'APERTA') {
                         $punteggio_totale = $risposta['punteggio'];
