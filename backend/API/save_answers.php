@@ -66,6 +66,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $totalCorrectOptions = count($correctOptionIDs);
 
             $selectedCorrectOptions = in_array($optionID, $correctOptionIDs) ? 1 : 0;
+            
+            $stmt = $conn->prepare("SELECT id FROM opzioni_domanda WHERE domanda_id = ? AND NOT corretta = 1");
+            $stmt->bind_param('i', $questionID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $wrongOptions = $result->fetch_all(MYSQLI_ASSOC);
+
+            $wrongOptionIDs = array_column($wrongOptions, 'id');
+            $totalWrongOptions = count($wrongOptionIDs);
+
+            $selectedWrongOptions = in_array($optionID, $wrongOptionIDs) ? 1 : 0;
 
             $stmt = $conn->prepare("SELECT punti FROM domanda WHERE id = ?");
             $stmt->bind_param('i', $questionID);
@@ -75,9 +86,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $maxPoints = $question['punti'];
 
             $score = 0;
+
             if ($totalCorrectOptions > 0) {
                 $score = ($selectedCorrectOptions / $totalCorrectOptions) * $maxPoints;
             }
+
+            if ($totalWrongOptions > 0) {
+                $score = $score - ((($selectedWrongOptions / $totalWrongOptions) * $maxPoints)/2);
+            }
+
+            if($score<0){
+                $score = 0;
+            }
+
 
             $stmt = $conn->prepare("INSERT INTO risposta (tentativo_id, domanda_id, risposta_multipla_id, punteggio) VALUES (?, ?, ?, ?)");
             $stmt->bind_param('iisi', $attemptID, $questionID, $optionID, $score);
