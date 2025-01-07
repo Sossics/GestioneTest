@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     fwrite($f, "Changing points of answer with attemptID=$attempt_id and questionID=$question_id to: $points\n");
 
-    if ($attempt_id > 0 && $question_id > 0 && !empty($points)) {
+    if ($attempt_id > 0 && $question_id > 0 && $points>=0) {
         include './../include/db_connect.php';
         fwrite($f, "    Checking if row exists. If yes, update.\n");
         $stmt = $conn->prepare("UPDATE risposta SET punteggio = ? WHERE tentativo_id = ? AND domanda_id = ?");
