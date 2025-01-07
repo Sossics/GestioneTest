@@ -92,12 +92,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             if ($totalWrongOptions > 0) {
-                $score = $score - ((($selectedWrongOptions / $totalWrongOptions) * $maxPoints)/2);
+                $score -= ((($selectedWrongOptions / $totalWrongOptions) * $maxPoints)/2);
             }
 
-            if($score<0){
-                $score = 0;
-            }
+            // if($score<0){
+            //     $score = 0;
+            // }
 
 
             $stmt = $conn->prepare("INSERT INTO risposta (tentativo_id, domanda_id, risposta_multipla_id, punteggio) VALUES (?, ?, ?, ?)");
