@@ -311,7 +311,9 @@ switch($_SESSION['user']['ruolo']){
                                             s.svolgibile AS test_status,
                                             s.id AS session_id,
                                             s.max_tentativi_ammessi AS max_attempts,
-                                            s.visibilita_tentativi AS attempts_visibility
+                                            s.visibilita_tentativi AS attempts_visibility,
+                                            s.data_inizio,
+                                            s.data_fine
                                         FROM 
                                             sessione AS s
                                         LEFT JOIN
@@ -535,8 +537,11 @@ switch($_SESSION['user']['ruolo']){
                 echo "</tbody>";
                 echo "</table></form>";
                 // var_export($row_fetch_tries);
+
+                $currentDate = new DateTime('now');
                 // echo "N Tentativi trovati:".$num_attempts." Tentativi Massimi:".$max_attempts;
-                if($row_fetch_tries['test_status'] == 1 && ($num_attempts < $max_attempts || $max_attempts == 0)){
+                //echo "\n".$row_fetch_tries['test_status'] ."==1 && (".$num_attempts." < .".$max_attempts." || ".$max_attempts." == 0) && (".strtotime($row_fetch_tries['data_fine'])." > ".strtotime(date("Y-m-d\TH:i")) .")";
+                if($row_fetch_tries['test_status'] == 1 && ($num_attempts < $max_attempts || $max_attempts == 0) && (strtotime($row_fetch_tries['data_fine']) > strtotime(date("Y-m-d\TH:i")) )){
                     echo "<button class='btn btn-success fs-6' onclick='startAttempt();'>Avvia un Tentativo</button>";
                 }
             }
