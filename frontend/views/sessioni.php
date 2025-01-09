@@ -438,10 +438,10 @@ $result = $stmt->get_result();
             </select>
 
             <label for="ora_inizio" class="col-form-label">Inizio: </label>
-            <input type="datetime-local" class="form-control" id="ora_inizio" name="ora_inizio" required>
+            <input type="datetime-local" class="form-control" id="ora_inizio" name="ora_inizio" value="<?php echo date("Y-m-d\TH:i"); ?>" disabled>
 
             <label for="ora_fine" class="col-form-label">Fine: </label>
-            <input type="datetime-local" class="form-control" id="ora_fine" name="ora_fine" required>
+            <input type="datetime-local" class="form-control" id="ora_fine" name="ora_fine" min="<?php echo date("Y-m-d\TH:i"); ?>" value="<?php echo date("Y-m-d\TH:i"); ?>" required>
 
         </div>
 
